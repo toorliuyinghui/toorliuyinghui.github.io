@@ -27,7 +27,7 @@
 <meta property="og:image" content="e:/github%20blog%20picture/clipboard.png">
 <meta property="og:image" content="e:/github%20blog%20picture/webday2.3.png">
 <meta property="og:image" content="e:/github%20blog%20picture/webday2.5.png">
-<meta property="og:updated_time" content="2019-03-18T12:37:32.572Z">
+<meta property="og:updated_time" content="2019-03-18T12:46:12.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web安全入门第二天">
 <meta name="twitter:description" content="###web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目  ####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_">
@@ -88,7 +88,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtecb5ev0002jcuk31b5r2ip" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtecfa2d00011kuk6t1vw4hu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -101,6 +101,7 @@
 <p>###文件上传漏洞<br>直接上传webshell控制服务器<br>原理 未将web应用程序与用户提交文件隔离<br>上传流程：前端校验      http传输    web应用程序校验    web应用储存   web应用解析运行<br><img src="E:\github blog picture\clipboard.png" alt><br>任意文件上传漏洞：<br>开发人员测试代码没删除，上传文件经过压缩编码 ，通过特定的客户端上传，如app<br>逃过js校验上传<br>绕过方法 ：修改前端JS代码 、改包<br>后i段上传校验绕过一般校验字段<br><img src alt><br>绕过扩展名的校验绕过黑名单<br>PHP php5,php6,php加空格，phtml，PhP（大小写混合）<br>ASP：aspx，cer，cdx，aSp（大小写混合）<br>JSp：jspx,jspfJsP(大小写混合)</p>
 <hr>
 <p>####绕过头文件校验<br><img src="E:\github blog picture\webday2.3.png" alt><br>文件上传漏洞00截断<br>在上传文件时web在某些版本下遇到\x00字符后会截断路径名，测试人员通过构造韩、x00的特殊文件名就可以通过上传文件名的扩展名校验，但在保存时却以非法扩展名保存文件<br>例如test.php\x00.jpg<br>！<a href="E:\github blog picture\webday2.4.png" target="_blank" rel="noopener"></a></p>
+<hr>
 <p>####解析漏洞<br><img src="E:\github blog picture\webday2.5.png" alt></p>
 
       

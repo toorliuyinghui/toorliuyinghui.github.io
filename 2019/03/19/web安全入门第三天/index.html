@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnWmEF.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnhkwT.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnhATU.png">
-<meta property="og:updated_time" content="2019-03-19T07:57:35.434Z">
+<meta property="og:updated_time" content="2019-03-19T08:18:20.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web安全入门第三天">
 <meta name="twitter:description" content="###简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， ######因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接 ####注入的基本思路：·判">
@@ -87,7 +87,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtfhohr20003bwukbqv9f1cm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtfialod0002xgukw7zpboty" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -99,9 +99,56 @@
 <hr>
 <p>####常见手工注入语句：<br>‘ and ’1‘=’1        ；‘ and ’1‘=’2<br>查询列数的语句： order by n （超出列数会执行错误）<br>union(联合查询可以和多条select语句共同起作用)<br>判断数据显示点 union select 1，2，3，N<br>查看数据库基本信息<br>version（），database（）<br>查看数据库有哪些表<br>union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=’security’<br>查看对应表有那些列<br>union select 1,2,group_contacat(column_name)from information_schema.clumns where table_name= ‘users’<br>查看账号密码信息<br>union select 1,group_concat(username),group_concat(password) from users<br>最常用的工具就是SQL map了，上手也快功能强大<br><img src="https://s2.ax1x.com/2019/03/19/AnWmEF.png" alt><br><a href="https://www.baidu.com" target="_blank" rel="noopener">进阶版</a></p>
 <hr>
-<p>###命令注入漏洞<br>有些网站可以提ping功能，但是如果缺少一些过滤保护，那么就能通过一些特殊的指令让其执行恶意命令<br>命令的权限取决于web中间件的权限<br>举个简单的例子 ping 127.0.0.1 &amp;&amp; net user admin password /add<br>就可以通过命令添加一个新的admin管理员<br>常见下面的命令：<br>|·for windows  |                            |<br>| :———– | ————————-:    |<br>|ping          |测试网络连通性                 |<br>|netstart      |查看网络端口及连接状态           |<br>|net user      |查看增加删除当前系统账号        |<br>|net localgroup|查看增加删除当前系统账号         |<br>|net localgroup|查看增加删除当前系统用户组        |<br>|dir           |当前目录下的文件和子目录信息      |<br>|req           |注册表及相关操作                 |<br>|systeminfo    |查看当前计算机的综合信息         |<br>|tasklist      |显示当前运行的进程信息           |</p>
+<p>###命令注入漏洞<br>有些网站可以提ping功能，但是如果缺少一些过滤保护，那么就能通过一些特殊的指令让其执行恶意命令<br>命令的权限取决于web中间件的权限<br>举个简单的例子 ping 127.0.0.1 &amp;&amp; net user admin password /add<br>就可以通过命令添加一个新的admin管理员<br>常见下面的命令：</p>
 <hr>
-<p>|多条语句执行语法格式    |                          |<br>| :—————- | ——————-：    |<br>|语句1 &amp; 语句2          | 执行1后执行2             |<br>|语句1 &amp;&amp; 语句2       | 执行1成功后执行2           |<br>|语句1 “||” 语句2     | 执行1失败后执行2        |<br>|语句1 ”|“ 语句2       | 把1的执行结果传递给2    |</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">·for windows</th>
+<th style="text-align:right"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ping</td>
+<td style="text-align:right">测试网络连通性</td>
+</tr>
+<tr>
+<td style="text-align:left">netstart</td>
+<td style="text-align:right">查看网络端口及连接状态</td>
+</tr>
+<tr>
+<td style="text-align:left">net user</td>
+<td style="text-align:right">查看增加删除当前系统账号</td>
+</tr>
+<tr>
+<td style="text-align:left">net localgroup</td>
+<td style="text-align:right">查看增加删除当前系统账号</td>
+</tr>
+<tr>
+<td style="text-align:left">net localgroup</td>
+<td style="text-align:right">查看增加删除当前系统用户组</td>
+</tr>
+<tr>
+<td style="text-align:left">dir</td>
+<td style="text-align:right">当前目录下的文件和子目录信息</td>
+</tr>
+<tr>
+<td style="text-align:left">req</td>
+<td style="text-align:right">注册表及相关操作</td>
+</tr>
+<tr>
+<td style="text-align:left">systeminfo</td>
+<td style="text-align:right">查看当前计算机的综合信息</td>
+</tr>
+<tr>
+<td style="text-align:left">tasklist</td>
+<td style="text-align:right">显示当前运行的进程信息</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>|多条语句执行语法格式||<br>| :—————— | ———————：|<br>|语句1 &amp; 语句2 |执行1后执行2|<br>|语句1 &amp;&amp; 语句2 |执行1成功后执行2 |<br>|<code>语句1 || 语句2 </code>|执行1失败后执行2|<br>|<code>语句1 | 语句2 </code>|把1的执行结果传递给2|</p>
 <hr>
 <table>
 <thead>

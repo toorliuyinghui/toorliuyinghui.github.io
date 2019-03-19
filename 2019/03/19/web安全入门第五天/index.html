@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="###综合场景渗透与渗透测试流程
+
+入门篇的渗透工具和渗透方式大概就介绍完了，今天介绍一下综合的流程思路什么的后面应该就会开展专题的渗透学习了还是说一下什么是渗透测试：“从攻击者的角度审核网络系统安全过程 使用黑客手段发现系统漏洞帮助系统管理员知道面临的威胁，以便采取必要的防范措施”目的是为了发现漏">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>web安全入门第五天 | 随便的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###综合场景渗透与渗透测试流程  入门篇的渗透工具和渗透方式大概就介绍完了，今天介绍一下综合的流程思路什么的后面应该就会开展专题的渗透学习了还是说一下什么是渗透测试：“从攻击者的角度审核网络系统安全过程 使用黑客手段发现系统漏洞帮助系统管理员知道面临的威胁，以便采取必要的防范措施”目的是为了发现漏洞，数据泄漏获取权限以及更深入的目标，学安全学的第一句话就是(人品第一，技术第二)就不要想着去干坏事">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web安全入门第五天">
+<meta property="og:url" content="http://yoursite.com/2019/03/19/web安全入门第五天/index.html">
+<meta property="og:site_name" content="随便的博客">
+<meta property="og:description" content="###综合场景渗透与渗透测试流程  入门篇的渗透工具和渗透方式大概就介绍完了，今天介绍一下综合的流程思路什么的后面应该就会开展专题的渗透学习了还是说一下什么是渗透测试：“从攻击者的角度审核网络系统安全过程 使用黑客手段发现系统漏洞帮助系统管理员知道面临的威胁，以便采取必要的防范措施”目的是为了发现漏洞，数据泄漏获取权限以及更深入的目标，学安全学的第一句话就是(人品第一，技术第二)就不要想着去干坏事">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/19/Aun5Sf.png">
+<meta property="og:updated_time" content="2019-03-19T10:38:03.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="web安全入门第五天">
+<meta name="twitter:description" content="###综合场景渗透与渗透测试流程  入门篇的渗透工具和渗透方式大概就介绍完了，今天介绍一下综合的流程思路什么的后面应该就会开展专题的渗透学习了还是说一下什么是渗透测试：“从攻击者的角度审核网络系统安全过程 使用黑客手段发现系统漏洞帮助系统管理员知道面临的威胁，以便采取必要的防范措施”目的是为了发现漏洞，数据泄漏获取权限以及更深入的目标，学安全学的第一句话就是(人品第一，技术第二)就不要想着去干坏事">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/03/19/Aun5Sf.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="随便的博客" rel="home">随便的博客</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">真的很随便</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-web安全入门第五天" class="post-web安全入门第五天 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      web安全入门第五天
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjtfnam4j0005awukvdu4gpc9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>###综合场景渗透与渗透测试流程</p>
+<blockquote>
+<p>入门篇的渗透工具和渗透方式大概就介绍完了，今天介绍一下综合的流程思路什么的后面应该就会开展专题的渗透学习了<br>还是说一下什么是渗透测试：“从攻击者的角度审核网络系统安全过程 使用黑客手段发现系统漏洞帮助系统管理员知道面临的威胁，以便采取必要的防范措施”<br>目的是为了发现漏洞，数据泄漏获取权限以及更深入的目标，学安全学的第一句话就是(人品第一，技术第二)就不要想着去干坏事啊。</p>
+<ol>
+<li>发现漏洞： 手工测试 漏洞扫描</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li><p>利用漏洞： 获取数据 获得权限（权限）<br>主要对象-目标信息系统组成<br>操作系统：WINDOWS，SOLARIS，AIX，LINUX，CSO，SGI等操作系统<br>网络结构：路由器，交换机和防火墙等设备组成的网络结构<br>应用系统：web应用，数据库，FTP等<br>数据类容：数据库，敏感文件类容</p>
+</li>
+<li><p>渗透方式<br> 3.1 前期交互方案制定,确认渗透测试目标梳理思路<br> 3.2 信息搜集：根据搜集到的信息，分析系统脆弱性，制定攻击模型，清理共攻击思路</p>
+<pre><code>信息搜集
+目标：web应用信息，操作系统与服务 网络结构
+·web 服务器网络信息
+·web服务器c段
+·web服务器防护情况
+·web应用程序信息
+·web应用中间件
+·web应用使用的框架模板
+·web应用路径信息
+·web应用的敏感文件
+·web应用使用的第三方插件
+·web应用程序域名信息：
+·whois注册信息
+·web应用程序子域名
+·nx记录 mx记录
+·web应用程序其他信息
+·网站客服信息（qq，邮箱，电话）
+·网站所属公司信息
+·网站员工敏感信息
+·公众号，app
+·web应用程序信息 中间件信息
+·判断网站是否采用了框架搭建？
+</code></pre><p> 3.3 漏洞发现：根据上一步建立威胁模型，展开漏洞测试</p>
+</li>
+<li><p>漏洞利用（不同的目标与路线对应不同的方向）：<br>或去数据-SQL注入，敏感信息泄露<br>获得权限-上传命令注入等</p>
+</li>
+<li>权限提升<br>获取web服务器最高权限，获取域控制权<br> 提权与密码破解<br> <img src="https://s2.ax1x.com/2019/03/19/Aun5Sf.png" alt><br> ·第三方组建提权<br> ·文件系统权限配置不当<br> pr提权的漏洞全称是Microsoft Windows RPCSS服务隔离本地权限提升漏洞。微软发布的漏洞公告是MS09-012（KB952004），对应的CVE-2009-0079<br> mimikatz  可以直接获取到windows平台下的明文密码，相比于其他工具最大的特点是速度极快<br> 原理是从lsall。exe进程中直接获取密码进行破解，而且破解方式不是穷举而是反向计算<pre><code>·脏牛提权
+Linux 内核的内存子系统在处理写入时复制（copy-on-write,cow）时产生了竞争条件（race condition）。
+mysql udf提权 
+</code></pre> ·MD5破解：stfw</li>
+<li>总结与报告输出：<br>总结漏洞情况，发现漏洞的详细过程，漏洞修补方案；</li>
+</ol>
+<hr>
+<blockquote>
+<p>至此web入门就大概这样了，对渗透有了一些初步认识，接下来就是专题的学习了留一个<a href="https://toorliuyinghui.github.io" target="_blank" rel="noopener">空连接</a></p>
+</blockquote>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/03/19/web安全入门第五天/">
+    <time datetime="2019-03-19T09:33:15.000Z" class="entry-date">
+        2019-03-19
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/03/19/web安全入门第4天/" rel="next">web安全入门第4天 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 或者说是笔记本嘛
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

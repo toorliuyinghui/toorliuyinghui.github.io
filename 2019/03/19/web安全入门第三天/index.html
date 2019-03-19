@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnWmEF.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnhkwT.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnhATU.png">
-<meta property="og:updated_time" content="2019-03-19T08:40:40.783Z">
+<meta property="og:updated_time" content="2019-03-19T08:48:39.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web安全入门第三天">
 <meta name="twitter:description" content="###简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， ######因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接 ####注入的基本思路：·判">
@@ -87,7 +87,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtfj3ewp0001rkuk02iixzmx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtfjdr780002hcukb416snum" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -148,7 +148,8 @@
 </tbody>
 </table>
 <hr>
-<p>|·多条语句执行语法格式    |                        |<br>| :——————– | ——————-：    |<br>|语句1 &amp; 语句2             |执行1后执行2             |<br>|语句1 &amp;&amp; 语句2             |执行1成功后执行2          |<br>|语句1  语句2            |执行1失败后执行2         |<br>|语句1  语句2             |把1的执行结果传递给2        |</p>
+<p>·多条语句执行语法格式<br>语句1 &amp; 语句2             :     执行1后执行2<br>语句1 &amp;&amp; 语句2             :     执行1成功后执行2<br>语句1 &#124;&#124;语句2    :     执行1失败后执行2<br>语句1 &#124;语句2         :     把1的执行结果传递给2    </p>
+<hr>
 <table>
 <thead>
 <tr>

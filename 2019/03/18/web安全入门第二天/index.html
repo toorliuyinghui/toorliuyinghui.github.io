@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="###web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目
+  <meta name="description" content="web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目
 
-####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval">
+####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数">
   
 
   
@@ -17,22 +17,22 @@
   
   <title>web安全入门第二天 | 且随疾风前行</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目  ####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_">
+  <meta name="description" content="web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目  ####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_GET">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web安全入门第二天">
 <meta property="og:url" content="http://yoursite.com/2019/03/18/web安全入门第二天/index.html">
 <meta property="og:site_name" content="且随疾风前行">
-<meta property="og:description" content="###web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目  ####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_">
+<meta property="og:description" content="web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目  ####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_GET">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AnFvdK.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AnFjZ6.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AnFOqx.md.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AnFLs1.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/18/AnFqMR.md.png">
-<meta property="og:updated_time" content="2019-03-18T13:26:31.523Z">
+<meta property="og:updated_time" content="2019-03-20T11:17:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web安全入门第二天">
-<meta name="twitter:description" content="###web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目  ####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_">
+<meta name="twitter:description" content="web威胁概述OWASP top-ten： open web application security project开放式web应用程序安全项目  ####Webshell(就是木马后门（php，jsp等）) 一句话木马：代码简单，通过webshell工具可以实现强大的功能php： eval 函数前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_GET">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/03/18/AnFvdK.md.png">
   
   
@@ -90,21 +90,21 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtgrssb30005hwuka0beblcb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjth476hx00056wuk93qkb1jv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>###web威胁概述<br><a href="http://www.owasp.org.cn/owasp-project/OWASPTop102017RC2.pdf" target="_blank" rel="noopener">OWASP top-ten</a>： open web application security project开放式web应用程序安全项目</p>
+        <h3 id="web威胁概述"><a href="#web威胁概述" class="headerlink" title="web威胁概述"></a>web威胁概述</h3><p><a href="http://www.owasp.org.cn/owasp-project/OWASPTop102017RC2.pdf" target="_blank" rel="noopener">OWASP top-ten</a>： open web application security project开放式web应用程序安全项目</p>
 <hr>
 <p>####Webshell(就是木马后门（php，jsp等）)<br> 一句话木马：代码简单，通过webshell工具可以实现强大的功能<br>php： eval 函数<br>前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_GET和$_POST<br>用于收集表单数据（from-data）<br>eg：eval ($_POST[‘cmd’]);<br>其他webshell 大马不需要菜刀等工具本身有各种类型的集成代码</p>
 <hr>
-<p>###文件上传漏洞<br>直接上传webshell控制服务器<br>原理 未将web应用程序与用户提交文件隔离<br>上传流程：前端校验      http传输    web应用程序校验    web应用储存   web应用解析运行<br><img src="https://s2.ax1x.com/2019/03/18/AnFvdK.md.png" alt><br>任意文件上传漏洞：<br>开发人员测试代码没删除，上传文件经过压缩编码 ，通过特定的客户端上传，如app<br>逃过js校验上传<br>绕过方法 ：修改前端JS代码 、改包<br>后i段上传校验绕过一般校验字段<br><img src="https://s2.ax1x.com/2019/03/18/AnFjZ6.md.png" alt><br>绕过扩展名的校验绕过黑名单<br>PHP php5,php6,php加空格，phtml，PhP（大小写混合）<br>ASP：aspx，cer，cdx，aSp（大小写混合）<br>JSp：jspx,jspfJsP(大小写混合)</p>
+<h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>直接上传webshell控制服务器<br>原理 未将web应用程序与用户提交文件隔离<br>上传流程：前端校验      http传输    web应用程序校验    web应用储存   web应用解析运行<br><img src="https://s2.ax1x.com/2019/03/18/AnFvdK.md.png" alt><br>任意文件上传漏洞：<br>开发人员测试代码没删除，上传文件经过压缩编码 ，通过特定的客户端上传，如app<br>逃过js校验上传<br>绕过方法 ：修改前端JS代码 、改包<br>后i段上传校验绕过一般校验字段<br><img src="https://s2.ax1x.com/2019/03/18/AnFjZ6.md.png" alt><br>绕过扩展名的校验绕过黑名单<br>PHP php5,php6,php加空格，phtml，PhP（大小写混合）<br>ASP：aspx，cer，cdx，aSp（大小写混合）<br>JSp：jspx,jspfJsP(大小写混合)</p>
 <hr>
-<p>####绕过头文件校验<br><img src="https://s2.ax1x.com/2019/03/18/AnFOqx.md.png" alt><br>文件上传漏洞00截断<br>在上传文件时web在某些版本下遇到\x00字符后会截断路径名，测试人员通过构造韩、x00的特殊文件名就可以通过上传文件名的扩展名校验，但在保存时却以非法扩展名保存文件<br>例如test.php\x00.jpg<br><img src="https://s2.ax1x.com/2019/03/18/AnFLs1.png" alt></p>
+<h4 id="绕过头文件校验"><a href="#绕过头文件校验" class="headerlink" title="绕过头文件校验"></a>绕过头文件校验</h4><p><img src="https://s2.ax1x.com/2019/03/18/AnFOqx.md.png" alt><br>文件上传漏洞00截断<br>在上传文件时web在某些版本下遇到\x00字符后会截断路径名，测试人员通过构造韩、x00的特殊文件名就可以通过上传文件名的扩展名校验，但在保存时却以非法扩展名保存文件<br>例如test.php\x00.jpg<br><img src="https://s2.ax1x.com/2019/03/18/AnFLs1.png" alt></p>
 <hr>
-<p>####解析漏洞<br><img src="https://s2.ax1x.com/2019/03/18/AnFqMR.md.png" alt></p>
+<h4 id="解析漏洞"><a href="#解析漏洞" class="headerlink" title="解析漏洞"></a>解析漏洞</h4><p><img src="https://s2.ax1x.com/2019/03/18/AnFqMR.md.png" alt></p>
 
       
     </div><!-- .entry-content -->

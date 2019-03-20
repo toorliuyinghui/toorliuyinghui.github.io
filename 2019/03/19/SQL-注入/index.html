@@ -15,17 +15,21 @@
   
   
   
-  <title>SQL-注入 | 随便的博客</title>
+  <title>SQL-注入 | 且随疾风前行</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="###手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  ####用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL-注入">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/SQL-注入/index.html">
-<meta property="og:site_name" content="随便的博客">
+<meta property="og:site_name" content="且随疾风前行">
 <meta property="og:description" content="###手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  ####用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/19/AuGOAS.png">
-<meta property="og:updated_time" content="2019-03-19T13:29:59.365Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKngEj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKna4I.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKuJzV.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKuDiR.png">
+<meta property="og:updated_time" content="2019-03-20T05:31:24.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL-注入">
 <meta name="twitter:description" content="###手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  ####用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·">
@@ -46,11 +50,11 @@
       <header id="masthead" class="site-header" role="banner">
     <hgroup>
       <h1 class="site-title">
-        <a href="/" title="随便的博客" rel="home">随便的博客</a>
+        <a href="/" title="且随疾风前行" rel="home">且随疾风前行</a>
       </h1>
       
         <h2 class="site-description">
-          <a href="/" id="subtitle">真的很随便</a>
+          <a href="/" id="subtitle">烟起云翻，疾风过处尽消散</a>
         </h2>
       
     </hgroup>
@@ -86,7 +90,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtftr4b600028kuks0gkryyi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtgrssan0000hwukxp7r0fsr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -126,8 +130,16 @@
 <li>列表对应关系：’and users.user is null#</li>
 <li>猜字段关系： ‘or user=’admin<pre><code>&apos;or user like &apos;%a%
 </code></pre></li>
-<li>猜账号对应密码：’or user=’admin’ and password=’密码</li>
+<li>猜账号对应密码：’or user=’admin’ and password=’密码<br>当数据可写</li>
 </ol>
+<blockquote>
+<p>· ‘:updat user set user=’yuanfh’ where user=’admin<br>“;”可以并列多条数据库语句<br>· INSERT INTO users（’user_id’,’first name’,’last_name’,’）user’,’password’,’avatar)VALUES(‘35’,’fh’,’yuan’,’密码’,’OK’);#<br>‘;DROP TABLE users；#<br>xp_cmdshell/ 储存过程<br>·SQLi没有通用的方法，要领就是掌握原理，了解各种数据库特性</p>
+</blockquote>
+<p>#####sql注入-DVWAmedium难度级别和high难度区分<br><img src="https://s2.ax1x.com/2019/03/20/AKngEj.png" alt><img src="https://s2.ax1x.com/2019/03/20/AKna4I.png" alt><br>上面两张图就是medium和low的区别<br>mysql_real_escape_string()”在php5.5弃用”在php7.0删除此语句，代之以MysqlLi，PDO_MySQl<br>medium在low的基础上增加了一句过滤语句，是PHP的集成语句，能实现特殊字符的转译</p>
+<blockquote>
+<p>“\,’,”,\n,\r,\xla”<br>下面看一下high改动的代码<br><img src="https://s2.ax1x.com/2019/03/20/AKuJzV.png" alt="在添加一行删除\的代码"><br><img src="https://s2.ax1x.com/2019/03/20/AKuDiR.png" alt="检查输入的是否为数字拒绝其他输入"><br>一个数字检查就无法注入select语句了</p>
+</blockquote>
+<p>###sql 盲注</p>
 
       
     </div><!-- .entry-content -->
@@ -211,7 +223,7 @@
 </div>
       </div>
       <footer id="colophon" role="contentinfo">
-    <p>&copy; 2019 或者说是笔记本嘛
+    <p>&copy; 2019 masterhui
     All rights reserved.</p>
     <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>

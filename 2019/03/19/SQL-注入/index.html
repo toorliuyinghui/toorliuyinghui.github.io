@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKna4I.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKuJzV.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/03/20/AKuDiR.png">
-<meta property="og:updated_time" content="2019-03-20T13:14:56.326Z">
+<meta property="og:updated_time" content="2019-03-21T14:13:47.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL-注入">
 <meta name="twitter:description" content="手动漏洞挖掘-sql注入服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器  用户登录判断·SELECTFROM users WHERE user= ‘uname ‘ AND password=’pass’·SELECTFROM users WHERE user=’name’ AND password=’’ OR ‘’=’’·基于报错的检测方法·  ‘  % （">
@@ -90,7 +90,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjth8ct860000qgukro4ixjp9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtipvmm500009wuki5ujb0nm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -139,10 +139,11 @@
 <hr>
 <h3 id="sql-盲注"><a href="#sql-盲注" class="headerlink" title="sql 盲注"></a>sql 盲注</h3><p>不显示数据库内建的报错信息<br>    ·内建的报错信息帮助开发人员发现和修复问题<br>    ·报错信息提供关于系统的大量有用信息<br>当程序员隐藏了数据库内建报错信息，替换为通用的错误提示，sql注入将无法依据报错信息判断注入语句的执行结果即盲注</p>
 <p>思路：既然无法基于报错信息报错信息判断结果，基于逻辑真假的不同结果来判断<br>· 1’and 1=1#<br>· 1’and 1=2#<br>猜列名 ： 1’and table.user is not null#<br>猜库里其他表：1’and (select count() from table)&gt;0#<br>列对应关系 1’and users.user is not null#<br>猜字段内容：1’and user=’admin<br>           1’or user like ‘%a%<br>·猜账号对应密码：<br>         ·2’ or user=’admin’and password=’密码<br> ·burpsuit自动化猜解</p>
-<p>·打开脑洞，注入的方式多种多样<br>真实案例：某电商网站</p>
+<h4 id="·打开脑洞，注入的方式多种多样"><a href="#·打开脑洞，注入的方式多种多样" class="headerlink" title="·打开脑洞，注入的方式多种多样"></a>·打开脑洞，注入的方式多种多样</h4><p>真实案例：某电商网站</p>
 <blockquote>
 <p><a href="http://1.1.1.1/goods.php?cnt&amp;goodsid=123" target="_blank" rel="noopener">http://1.1.1.1/goods.php?cnt&amp;goodsid=123</a><br>·and 1=1#   显示一包面巾纸<br>·and 1=2#   显示一包洗衣粉<br>工具未扫到漏洞，于是人工拼接了下列语句<br>                            ↓截取第一个字符<br>  · 1’and ORD(MID((version()),1,1))&amp;1&gt;0#<br> 得到ASCLL码↑ ↑从字符串截取 ↑查询版本信息<br>· CURRENT_USER()、DATABASE()<br>· MID(ColumName,Start[,Length])<br>·ORD(string)&amp;32 跟上的对应的字符的ascll码的32所在的位的值<br>1(128) 1(64) 1(32) 1(16) 1(8) 1(4) 1(2) 1(1)<br>依次查询就可以的到对应的ascll码进而得到所有信息.</p>
 </blockquote>
+<h3 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h3><p>·开源sql注入漏洞检测，利用工具<br>·检测动态页面中get/past参数、cookie、http头<br>·数据榨取<br>·文件系统访问<br>·操作系统命令执行<br>·引擎强大、特性丰富<br>·Xss漏洞检测</p>
 
       
     </div><!-- .entry-content -->

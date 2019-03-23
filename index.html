@@ -78,7 +78,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtipvmm500009wuki5ujb0nm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtl0hgri0003csukrkavtjte" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -131,7 +131,28 @@
 <blockquote>
 <p><a href="http://1.1.1.1/goods.php?cnt&amp;goodsid=123" target="_blank" rel="noopener">http://1.1.1.1/goods.php?cnt&amp;goodsid=123</a><br>·and 1=1#   显示一包面巾纸<br>·and 1=2#   显示一包洗衣粉<br>工具未扫到漏洞，于是人工拼接了下列语句<br>                            ↓截取第一个字符<br>  · 1’and ORD(MID((version()),1,1))&amp;1&gt;0#<br> 得到ASCLL码↑ ↑从字符串截取 ↑查询版本信息<br>· CURRENT_USER()、DATABASE()<br>· MID(ColumName,Start[,Length])<br>·ORD(string)&amp;32 跟上的对应的字符的ascll码的32所在的位的值<br>1(128) 1(64) 1(32) 1(16) 1(8) 1(4) 1(2) 1(1)<br>依次查询就可以的到对应的ascll码进而得到所有信息.</p>
 </blockquote>
-<h3 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h3><p>·开源sql注入漏洞检测，利用工具<br>·检测动态页面中get/past参数、cookie、http头<br>·数据榨取<br>·文件系统访问<br>·操作系统命令执行<br>·引擎强大、特性丰富<br>·Xss漏洞检测</p>
+<h3 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h3><blockquote>
+<p>简介<br>    ·开源sql注入漏洞检测，利用工具<br>    ·检测动态页面中get/past参数、cookie、http头<br>    ·数据榨取<br>    ·文件系统访问<br>    ·操作系统命令执行<br>    ·引擎强大、特性丰富<br>    ·Xss漏洞检测</p>
+</blockquote>
+<blockquote>
+<p>五种漏洞检测技术</p>
+<ol>
+<li>基于布尔的盲注检测。(详见手动注入)</li>
+<li>基于时间的盲注检测。<br>· ‘and (select*from(select(sleep(20)))a)#<pre><code>↑等待20s再执行
+</code></pre></li>
+<li>基于错误的检测</li>
+<li>基于UNION的联合查询检测<br>  ·适用于通过for循环直接输出联合查询结果，否则只显示第一项结果</li>
+<li>基于堆叠的查询检测<br>·通过；堆叠多个查询语句<br>·适用于非slect的数据修改，删除操作<br>· 支持的数据库管理系统DBMS<br>·MySWQL，Oracle，PostgerSQL，Microft SQL，Server，Microsoft Access，IBM DB2，SQLite，Firebird，<br>Sybase，SAP MaxDB.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>其他特性<br> ·数据库直连  -d<br>         ·不通过SQL注入，指定身份认证信息，ip，端口<br> ·与Burp suit，Google 结合使用，支持政策表达式限定测试目标<br> ·Get，past，cookie，referer，User-Agent（随机或指定）<br>     ·cookie过期后自动处理Set-Cookie头，更新cookie信息<br> ·限速：最大开发 延迟发送<br> ·支持Basic，Digest，NTLM，CA身份认证<br> ·数据库版本，用户权限hash枚举和字典破解，暴力破解表列名称<br> ·文件上传下载，UDF，启动并执行储存过程，操作系统命令执行，访问windows注册表<br> ·与w3af，metaspolit集成结合使用，基于数据库服务进程提权和上传执行后门</p>
+</blockquote>
+<h4 id="SQLMAP自动注入-1"><a href="#SQLMAP自动注入-1" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><p> ·Get方法<br>     ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br> ·扫描URL列表文件<br>      ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>       <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>       -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
+<pre><code>·sqlmap -m list.txt
+扫描Google的搜索结果
+SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
+</code></pre><p>|常用的一些参数|作用|<br>| ：———– | ：——————————— |<br>|-u|指定目标地址|<br>|-f|指纹，足迹|<br>|-p|手动测是要测试的参数|<br>|-h/-hh|展示/详细展示帮助|<br>|-d|把sqlmap作为sql客户端程序直接连接|<br>|–users|所有数据库用户|<br>|–banner|目标是什么版本，什么信息的数据库|<br>|–dbs|所有数据库|<br>|–schema|源数据库(定义数据的数据)|<br>|-a|all|<br>|–version|版本信息|<br>|-m list.txt|扫描多个url|</p>
 
       
     </div><!-- .entry-content -->
@@ -168,7 +189,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjtipvmml00059wukcvpdgdg5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjtl0hgrj0004csukac3waeio" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -256,7 +277,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjtipvmme00029wuk59x2hzo0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjtl0hgrk0005csukbl84jwld" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -319,7 +340,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtipvmmj00049wukchqxsgbc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtl0hgrh0002csuk10jq3muy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -460,7 +481,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtipvmn200069wukz15xacft" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtl0hgrg0001csuku8tntikh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -511,7 +532,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjtipvmmf00039wuknjljpru1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjtl0hgr00000csukhj08sjoo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -563,7 +584,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtipvmmb00019wukrlr8xzl7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtl0hgsb0006csuknhu47suk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 

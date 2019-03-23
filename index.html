@@ -63,6 +63,110 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-sqlmap自动注入" class="post-sqlmap自动注入 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/23/sqlmap自动注入/" data-id="cjtl0yy2l0002osukgrsu8v5c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h4 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><p> ·Get方法<br>     ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br> ·扫描URL列表文件<br>      ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>       <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>       -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
+<pre><code>·sqlmap -m list.txt
+扫描Google的搜索结果
+SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">常用的一些参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-u</td>
+<td style="text-align:left">指定目标地址</td>
+</tr>
+<tr>
+<td style="text-align:left">-f</td>
+<td style="text-align:left">指纹，足迹</td>
+</tr>
+<tr>
+<td style="text-align:left">-p</td>
+<td style="text-align:left">手动测是要测试的参数</td>
+</tr>
+<tr>
+<td style="text-align:left">-h/-hh</td>
+<td style="text-align:left">展示/详细展示帮助</td>
+</tr>
+<tr>
+<td style="text-align:left">-d</td>
+<td style="text-align:left">把sqlmap作为sql客户端程序直接连接</td>
+</tr>
+<tr>
+<td style="text-align:left">–users</td>
+<td style="text-align:left">所有数据库用户</td>
+</tr>
+<tr>
+<td style="text-align:left">–banner</td>
+<td style="text-align:left">目标是什么版本，什么信息的数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">–dbs</td>
+<td style="text-align:left">所有数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">–schema</td>
+<td style="text-align:left">源数据库(定义数据的数据)</td>
+</tr>
+<tr>
+<td style="text-align:left">-a</td>
+<td style="text-align:left">all</td>
+</tr>
+<tr>
+<td style="text-align:left">–version</td>
+<td style="text-align:left">版本信息</td>
+</tr>
+<tr>
+<td style="text-align:left">-m list.txt</td>
+<td style="text-align:left">扫描多个url</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2019/03/23/sqlmap自动注入/">
+    <time datetime="2019-03-23T04:59:31.000Z" class="entry-date">
+        2019-03-23
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-SQL-注入" class="post-SQL-注入 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -78,7 +182,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtl0u8n90006okukqc1xlyrm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/SQL-注入/" data-id="cjtl0yy2c0000osuk59do3nh2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -148,68 +252,6 @@
 <blockquote>
 <p>其他特性<br> ·数据库直连  -d<br>         ·不通过SQL注入，指定身份认证信息，ip，端口<br> ·与Burp suit，Google 结合使用，支持政策表达式限定测试目标<br> ·Get，past，cookie，referer，User-Agent（随机或指定）<br>     ·cookie过期后自动处理Set-Cookie头，更新cookie信息<br> ·限速：最大开发 延迟发送<br> ·支持Basic，Digest，NTLM，CA身份认证<br> ·数据库版本，用户权限hash枚举和字典破解，暴力破解表列名称<br> ·文件上传下载，UDF，启动并执行储存过程，操作系统命令执行，访问windows注册表<br> ·与w3af，metaspolit集成结合使用，基于数据库服务进程提权和上传执行后门</p>
 </blockquote>
-<h4 id="SQLMAP自动注入-1"><a href="#SQLMAP自动注入-1" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><p> ·Get方法<br>     ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br> ·扫描URL列表文件<br>      ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>       <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>       -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
-<pre><code>·sqlmap -m list.txt
-扫描Google的搜索结果
-SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:left">常用的一些参数</th>
-<th style="text-align:left">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">-u</td>
-<td style="text-align:left">指定目标地址</td>
-</tr>
-<tr>
-<td style="text-align:left">-f</td>
-<td style="text-align:left">指纹，足迹</td>
-</tr>
-<tr>
-<td style="text-align:left">-p</td>
-<td style="text-align:left">手动测是要测试的参数</td>
-</tr>
-<tr>
-<td style="text-align:left">-h/-hh</td>
-<td style="text-align:left">展示/详细展示帮助</td>
-</tr>
-<tr>
-<td style="text-align:left">-d</td>
-<td style="text-align:left">把sqlmap作为sql客户端程序直接连接</td>
-</tr>
-<tr>
-<td style="text-align:left">–users</td>
-<td style="text-align:left">所有数据库用户</td>
-</tr>
-<tr>
-<td style="text-align:left">–banner</td>
-<td style="text-align:left">目标是什么版本，什么信息的数据库</td>
-</tr>
-<tr>
-<td style="text-align:left">–dbs</td>
-<td style="text-align:left">所有数据库</td>
-</tr>
-<tr>
-<td style="text-align:left">–schema</td>
-<td style="text-align:left">源数据库(定义数据的数据)</td>
-</tr>
-<tr>
-<td style="text-align:left">-a</td>
-<td style="text-align:left">all</td>
-</tr>
-<tr>
-<td style="text-align:left">–version</td>
-<td style="text-align:left">版本信息</td>
-</tr>
-<tr>
-<td style="text-align:left">-m list.txt</td>
-<td style="text-align:left">扫描多个url</td>
-</tr>
-</tbody>
-</table>
 
       
     </div><!-- .entry-content -->
@@ -246,7 +288,7 @@ SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjtl0u8n30005okuksq2jprw7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第五天/" data-id="cjtl0yy320007osukqfulgkqz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -334,7 +376,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjtl0u8mx0001okuk1ofs2qyo" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第4天/" data-id="cjtl0yy2o0004osuks67e077y" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -397,7 +439,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtl0u8n00003okuk9r2o7e7p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/19/web安全入门第三天/" data-id="cjtl0yy2p0005osuky548odmf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -538,7 +580,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtl0u8mz0002okukikdgf5dt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第二天/" data-id="cjtl0yy2r0006osukak5rmqwg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -589,7 +631,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjtl0u8n20004okuksp1vi3q1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/18/web安全入门第一天/" data-id="cjtl0yy2m0003osukesyb9cys" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -641,7 +683,7 @@ mysql udf提权
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtl0u8mr0000okukfecbmskz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2019/03/17/hello-world/" data-id="cjtl0yy2i0001osukz90z8r00" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -700,6 +742,10 @@ mysql udf提权
       <ul>
         
           <li>
+            <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
           </li>
         
@@ -713,10 +759,6 @@ mysql udf提权
         
           <li>
             <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
           </li>
         
       </ul>

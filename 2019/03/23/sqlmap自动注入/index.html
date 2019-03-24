@@ -195,12 +195,11 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><ol>
-<li><p>Get方法<br> ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br>·扫描URL列表文件<br>  ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>   <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>   -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
-<p>   ·sqlmap -m list.txt<br>   扫描Google的搜索结果<br>   SQLmap.py -g “inurl:\”php?id=1\””</p>
-</li>
-</ol>
-<table>
+        <h4 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><p> 1 Get方法<br>     ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br> ·扫描URL列表文件<br>      ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>       <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>       -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
+<pre><code>·sqlmap -m list.txt
+扫描Google的搜索结果
+SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
+</code></pre><table>
 <thead>
 <tr>
 <th style="text-align:left">常用的一些参数</th>
@@ -254,21 +253,15 @@
 </tr>
 </tbody>
 </table>
-<ol start="2">
-<li>POST方法<br>·使用http请求文件   sqlmap -r request.txt<br>·使用 burpsuit log文件 sqlmap -l log.txt<br>·HTTPS</li>
-</ol>
+<p>2 POST方法<br>  ·使用http请求文件   sqlmap -r request.txt<br>  ·使用 burpsuit log文件 sqlmap -l log.txt<br> ·HTTPS</p>
 <blockquote>
 <p>·sqlmap -u “<a href="https://127.0.0.1/a.php?id=1:8080&quot;--force-ssl" target="_blank" rel="noopener">https://127.0.0.1/a.php?id=1:8080&quot;--force-ssl</a><br><a href="https://toorliuyinghui.github.io/2019/03/23/%E5%8F%82%E6%95%B0%E8%A1%A8/" target="_blank" rel="noopener">参数参考表</a></p>
 </blockquote>
-<ol start="3">
-<li>request 方法<br>·–user-agent<br>–random.agent<br> ·sqlmap检查user-agent中的注入点: level &gt;=3<br> ·APP/WAF/IPS/IDS/过滤异常user-agent时报错<br>3.1 提交请求<br>·Host 头<br>–host=”aaaaaaaaaa” –leval 5 –dbs<br>host 头的注入漏洞只会存在于level 5（一般不常见）<br>Refer 头：–refer<br>·level &gt;=3<br>额外的header： –headers<br>· 多个头提交。每个头单独一行用”\”换行 (名称区分大小写)<br>· sqlmap -u “http：//1.1.1.1/a.php?id=1” –headers=”host：Www.a.com\nUser-Agent:yuanfh”<br>·method=GET/PPOST<br>（不建议从高level检查”耗时且易发现”）<br>-methord=GET/POST<br>3.2 身份认证<br>类型：Basic   DIgest  NTLM<br>sqlmap -u “http<strong>**</strong>a.php?id=1”–auth-type <strong>Basic</strong> –auth-cred “user:pass”<br>基于证书的认证<br>–auth-cert（官方） / –auth-file (sqlmap -help)<br>–auth-file=”ca.PEM”<br>·含有私钥的PEM格式证书文件（仅支持）<br>·PEM格式认证</li>
-</ol>
+<p>3 request 方法<br>·–user-agent<br> –random.agent<br>    ·sqlmap检查user-agent中的注入点: level &gt;=3<br>    ·APP/WAF/IPS/IDS/过滤异常user-agent时报错<br>3.1 提交请求<br>·Host 头<br> –host=”aaaaaaaaaa” –leval 5 –dbs<br> host 头的注入漏洞只会存在于level 5（一般不常见）<br> Refer 头：–refer<br> ·level &gt;=3<br>额外的header： –headers<br> · 多个头提交。每个头单独一行用”\”换行 (名称区分大小写)<br> · sqlmap -u “http：//1.1.1.1/a.php?id=1” –headers=”host：Www.a.com\nUser-Agent:yuanfh”<br> ·method=GET/PPOST<br> （不建议从高level检查”耗时且易发现”）<br> -methord=GET/POST<br>3.2 身份认证<br>类型：Basic   DIgest  NTLM<br>sqlmap -u “http<strong>**</strong>a.php?id=1”–auth-type <strong>Basic</strong> –auth-cred “user:pass”<br>基于证书的认证<br>–auth-cert（官方） / –auth-file (sqlmap -help)<br>–auth-file=”ca.PEM”<br>·含有私钥的PEM格式证书文件（仅支持）<br>·PEM格式认证</p>
 <p>·Http（s）代理<br>扫描时可能被服务器所发现，而被封。则可以用代理扫描<br>·–proxy=”http：//127.0.0.1:8087”<br>–proxy-cerd=”name:pass”<br>–ignor-proxy (忽略系统级代理设置，常用于扫描本地网络目标)<br>·sqlmap -u “http：//1.1.1.1/a.php?id=1”–proxy=”http：//127.0.0.1:8087”–dbs</p>
 <p>–delay<br>·（延迟设置，减小被发现的几率）每次http（S）请求之间延迟时间，浮点数，单位为妙，默认无延迟<br>–timeout<br>·请求超时时间，浮点数，默认为30秒<br>–retries<br>超时重试次数 ，默认三次<br>可以 参数 数值 or 参数=”数值“<br>–randomize<br> ·长度，类型与原始值保持一致的情况下，指定每次请求随机取值的参数名称</p>
 <p>–scope<br>     ·过滤日志内容，通过正测表达式筛选扫描对象<br>     ·sqlmap -l burp.log –sco=(www)?\target\.(com|net|org)”<br>     ·sqlmap -l 2.log –scope=”(19)?\.168\.20\.(1|10|100)”level 3 –dbs<br> –safe-url / –safe-freq<br>      ·检测和盲注阶段会产生大量失败请求，服务器段可能因此销毁session<br>      ·每发送–safe-freq次注入请求后发送一次正常请求<br> –skip-urlncode<br>     ·默认Get方法会对传输内容进行编码，某些WEB服务器不遵守RFC标准编码，使用原始字符提交数据<br> –eval<br>      每次请求 执行指定的python代码<br>      每次请求更改或者增加新的参数值（时间依赖，其他参数值依赖）<br>      sqlmap -u<br>      “http：//1.1.1.1/a.php?id=1&amp;hash=密文密码”–eval=“import hashlib;hash=hashlib.md5(id).hexdigest()”</p>
-<ol start="3">
-<li>OPTIMIAZATION<br>优化性能<br>–predict-output<br>   ·根据检方法，比对返回值和统计表内容，不断缩小检测范围，提高检测效率<br>   ·版本名，用户名，密码，Privilieges，role,数据库名称，表名，列名<br>   ·与threads参数不兼容<br>   ·统计表：/user/share/sqlmap/txt/common-outputs。txt<br>–keep-alive<br>·使用http（s）长连接，性能好<br>·与proxy参数不兼容<br>·长连接避免你重复建立连接的网络开销，但大量长连接会占用服务器资源<br>–null-connection<br>   · 只获取相应页面大小值而非页面具体内容<br>   ·通常只用于盲注判断（真假），降低网络带宽消耗<br>   ·与–text-only参数不兼容（基于页面内容比较判断 真/假）<br>–threads<br>·最大并发线程<br>·盲注时每个线程获取一个字符（7次请求），获取完成后线程结束<br>·默认值为1，建议不要超过10 ，否则可能影响站点可用性<br>·与 –predict-output参数不兼容<br>-o 开启前三个性能参数（除–threads参数）</li>
-</ol>
+<p> 4 OPTIMIAZATION<br> 优化性能<br>  –predict-output<br>       ·根据检方法，比对返回值和统计表内容，不断缩小检测范围，提高检测效率<br>       ·版本名，用户名，密码，Privilieges，role,数据库名称，表名，列名<br>       ·与threads参数不兼容<br>       ·统计表：/user/share/sqlmap/txt/common-outputs。txt<br>   –keep-alive<br>    ·使用http（s）长连接，性能好<br>    ·与proxy参数不兼容<br>    ·长连接避免你重复建立连接的网络开销，但大量长连接会占用服务器资源<br>   –null-connection<br>       · 只获取相应页面大小值而非页面具体内容<br>       ·通常只用于盲注判断（真假），降低网络带宽消耗<br>       ·与–text-only参数不兼容（基于页面内容比较判断 真/假）<br>   –threads<br>    ·最大并发线程<br>    ·盲注时每个线程获取一个字符（7次请求），获取完成后线程结束<br>    ·默认值为1，建议不要超过10 ，否则可能影响站点可用性<br>    ·与 –predict-output参数不兼容<br>   -o 开启前三个性能参数（除–threads参数）</p>
 
     </div>
 </article>
@@ -413,12 +406,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/03/17/hello-world/">Hello World</a>
                 </span>
             </li>
@@ -431,13 +418,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
                 </span>
             </li>
             
@@ -455,7 +436,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/23/参数表/">参数表</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
                 </span>
             </li>
             

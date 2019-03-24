@@ -10,7 +10,7 @@
     
     
     
-    <title>sqlmap自动注入 | 且随疾风前行</title>
+    <title>新的开始--爬虫 | 且随疾风前行</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -160,19 +160,19 @@
         <i class="fa fa-home"></i>
         <a href="http://yoursite.com">且随疾风前行</a>
         >
-        <span>sqlmap自动注入</span>
+        <span>新的开始--爬虫</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
+                <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-03-23
+                <i class="fa fa-calendar"></i> 2019-03-24
             </span>
             
         </div>
@@ -182,11 +182,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
+                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-03-23
+                <i class="fa fa-calendar"></i> 2019-03-24
             </p>
             <p>
                 
@@ -195,73 +195,52 @@
         </center>
     </div>
     <div class="content-article">
-        <h4 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><p> 1 Get方法<br>     ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br> ·扫描URL列表文件<br>      ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>       <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>       -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
-<pre><code>·sqlmap -m list.txt
-扫描Google的搜索结果
-SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:left">常用的一些参数</th>
-<th style="text-align:left">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">-a</td>
-<td style="text-align:left">all</td>
-</tr>
-<tr>
-<td style="text-align:left">–banner</td>
-<td style="text-align:left">目标是什么版本，什么信息的数据库</td>
-</tr>
-<tr>
-<td style="text-align:left">–dbs</td>
-<td style="text-align:left">所有数据库</td>
-</tr>
-<tr>
-<td style="text-align:left">-f</td>
-<td style="text-align:left">指纹，足迹</td>
-</tr>
-<tr>
-<td style="text-align:left">–force-ssl</td>
-<td style="text-align:left">实现对HTTPS的sql注入</td>
-</tr>
-<tr>
-<td style="text-align:left">-h/-hh</td>
-<td style="text-align:left">展示/详细展示帮助</td>
-</tr>
-<tr>
-<td style="text-align:left">-m list.txt</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">-p</td>
-<td style="text-align:left">手动测是要测试的参数</td>
-</tr>
-<tr>
-<td style="text-align:left">–schema</td>
-<td style="text-align:left">源数据库(定义数据的数据)</td>
-</tr>
-<tr>
-<td style="text-align:left">–users</td>
-<td style="text-align:left">所有数据库用户</td>
-</tr>
-<tr>
-<td style="text-align:left">–version</td>
-<td style="text-align:left">版本信息</td>
-</tr>
-</tbody>
-</table>
-<p>2 POST方法<br>  ·使用http请求文件   sqlmap -r request.txt<br>  ·使用 burpsuit log文件 sqlmap -l log.txt<br> ·HTTPS</p>
-<blockquote>
-<p>·sqlmap -u “<a href="https://127.0.0.1/a.php?id=1:8080&quot;--force-ssl" target="_blank" rel="noopener">https://127.0.0.1/a.php?id=1:8080&quot;--force-ssl</a><br><a href="https://toorliuyinghui.github.io/2019/03/23/%E5%8F%82%E6%95%B0%E8%A1%A8/" target="_blank" rel="noopener">参数参考表</a></p>
+        <h2 id="python–爬虫入门"><a href="#python–爬虫入门" class="headerlink" title="python–爬虫入门"></a>python–爬虫入门</h2><blockquote>
+<p>在这里安利一下廖雪峰老师，不管是mysql，python，什么的都讲的究极好   <a href="https://www.bilibili.com/video/av42741352?from=search&amp;seid=15271243758409082888" target="_blank" rel="noopener">python–商业爬虫</a></p>
 </blockquote>
-<p>3 request 方法<br>·–user-agent<br> –random.agent<br>    ·sqlmap检查user-agent中的注入点: level &gt;=3<br>    ·APP/WAF/IPS/IDS/过滤异常user-agent时报错<br>3.1 提交请求<br>·Host 头<br> –host=”aaaaaaaaaa” –leval 5 –dbs<br> host 头的注入漏洞只会存在于level 5（一般不常见）<br> Refer 头：–refer<br> ·level &gt;=3<br>额外的header： –headers<br> · 多个头提交。每个头单独一行用”\”换行 (名称区分大小写)<br> · sqlmap -u “http：//1.1.1.1/a.php?id=1” –headers=”host：Www.a.com\nUser-Agent:yuanfh”<br> ·method=GET/PPOST<br> （不建议从高level检查”耗时且易发现”）<br> -methord=GET/POST<br>3.2 身份认证<br>类型：Basic   DIgest  NTLM<br>sqlmap -u “http<strong>**</strong>a.php?id=1”–auth-type <strong>Basic</strong> –auth-cred “user:pass”<br>基于证书的认证<br>–auth-cert（官方） / –auth-file (sqlmap -help)<br>–auth-file=”ca.PEM”<br>·含有私钥的PEM格式证书文件（仅支持）<br>·PEM格式认证</p>
-<p>·Http（s）代理<br>扫描时可能被服务器所发现，而被封。则可以用代理扫描<br>·–proxy=”http：//127.0.0.1:8087”<br>–proxy-cerd=”name:pass”<br>–ignor-proxy (忽略系统级代理设置，常用于扫描本地网络目标)<br>·sqlmap -u “http：//1.1.1.1/a.php?id=1”–proxy=”http：//127.0.0.1:8087”–dbs</p>
-<p>–delay<br>·（延迟设置，减小被发现的几率）每次http（S）请求之间延迟时间，浮点数，单位为妙，默认无延迟<br>–timeout<br>·请求超时时间，浮点数，默认为30秒<br>–retries<br>超时重试次数 ，默认三次<br>可以 参数 数值 or 参数=”数值“<br>–randomize<br> ·长度，类型与原始值保持一致的情况下，指定每次请求随机取值的参数名称</p>
-<p>–scope<br>     ·过滤日志内容，通过正测表达式筛选扫描对象<br>     ·sqlmap -l burp.log –sco=(www)?\target\.(com|net|org)”<br>     ·sqlmap -l 2.log –scope=”(19)?\.168\.20\.(1|10|100)”level 3 –dbs<br> –safe-url / –safe-freq<br>      ·检测和盲注阶段会产生大量失败请求，服务器段可能因此销毁session<br>      ·每发送–safe-freq次注入请求后发送一次正常请求<br> –skip-urlncode<br>     ·默认Get方法会对传输内容进行编码，某些WEB服务器不遵守RFC标准编码，使用原始字符提交数据<br> –eval<br>      每次请求 执行指定的python代码<br>      每次请求更改或者增加新的参数值（时间依赖，其他参数值依赖）<br>      sqlmap -u<br>      “http：//1.1.1.1/a.php?id=1&amp;hash=密文密码”–eval=“import hashlib;hash=hashlib.md5(id).hexdigest()”</p>
-<p> 4 OPTIMIAZATION<br> 优化性能<br>  –predict-output<br>       ·根据检方法，比对返回值和统计表内容，不断缩小检测范围，提高检测效率<br>       ·版本名，用户名，密码，Privilieges，role,数据库名称，表名，列名<br>       ·与threads参数不兼容<br>       ·统计表：/user/share/sqlmap/txt/common-outputs。txt<br>   –keep-alive<br>    ·使用http（s）长连接，性能好<br>    ·与proxy参数不兼容<br>    ·长连接避免你重复建立连接的网络开销，但大量长连接会占用服务器资源<br>   –null-connection<br>       · 只获取相应页面大小值而非页面具体内容<br>       ·通常只用于盲注判断（真假），降低网络带宽消耗<br>       ·与–text-only参数不兼容（基于页面内容比较判断 真/假）<br>   –threads<br>    ·最大并发线程<br>    ·盲注时每个线程获取一个字符（7次请求），获取完成后线程结束<br>    ·默认值为1，建议不要超过10 ，否则可能影响站点可用性<br>    ·与 –predict-output参数不兼容<br>   -o 开启前三个性能参数（除–threads参数）</p>
+<p>######爬虫的强大作用在这里就不多言了，管他那么多，肝出来就完事了QAQ<br>刚开始学爬虫这里先粘一张<a href="https://sakura-zzz.github.io/2019/03/11/%E7%88%AC%E8%99%AB%E6%A8%A1%E6%9D%BF/#more" target="_blank" rel="noopener">嘤嘤嘤</a>的爬虫模板有这个参考入门会快很多</p>
+<ol>
+<li><p>http:<br> (1)当用户在地址输入了网址发送网络请求的过程<br> (2)请求方式</p>
+<pre><code>get请求：
+    优点：比较便捷
+    缺点：不安全，参数长度有限制
+post请求：
+    比较安全，数据整体没有限制，能上传文件    
+put（不完全的）
+delete（删除一些信息）
+发送网络请求（需要带一定的数据给服务器）
+↑放在请求头里 requestheader
+![](https://s2.ax1x.com/2019/03/24/AY51VU.png)
+head（请求头）
+    Accept：文本格式
+    Accept·Encoding：编码格式
+    connection：长连接，短链接
+    cooklie：缓存(服务器是别访问用户的唯一凭证)
+服务器会返回数据：response header
+</code></pre></li>
+<li><p>爬虫入门：使用代码模拟用户批量发送网络请求批量获取数据<br> 1爬虫的价值：</p>
+<pre><code>1买卖数据（高端领域价格贵）
+2数据分析
+3流量
+</code></pre><p> 2合法性:灰色产业</p>
+<pre><code>没有相关法律规定
+公司概念：爬取数据库（窃取商业机密）！违法
+</code></pre><p> 3只能爬去用户能访问到的数据<br> 4爬虫的分类：</p>
+<pre><code>通用爬虫
+    使用搜索引擎搜索东西
+    优势：开放性好，速度快
+    劣势：目标不明确，返回内容很多用户不需要
+聚焦爬虫（也就是接下来学习的）
+    优点：目标明确，清楚用户需求，返回内容固定
+增量式：从第一页请求到最后一叶
+Deep：深度爬虫：爬取静态数据：html，css
+    动态数据：js 加密js
+    robots：是否允许其他爬虫（通用爬虫）爬去某些内容
+    聚焦爬虫不遵守robots
+反爬虫：干掉用户 
+爬虫和反爬虫做斗争：资源对等胜利者永远是爬虫
+</code></pre></li>
+</ol>
 
     </div>
 </article>
@@ -272,7 +251,7 @@ SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = 'sqlmap自动注入'
+      window.commentConfig.title = '新的开始--爬虫'
     }
 </script>
 
@@ -475,17 +454,17 @@ SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
 
                 
                 <li>
-                    <a href="/2019/03/23/sqlmap自动注入/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/03/24/新的开始-爬虫/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/23/sqlmap自动注入/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/03/24/新的开始-爬虫/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/23/sqlmap自动注入/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/03/24/新的开始-爬虫/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -605,7 +584,7 @@ SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Sat Mar 23 2019 12:59:31 GMT+0800'
+      window.commentConfig.id = 'Sun Mar 24 2019 21:17:47 GMT+0800'
       window.commentConfig.owner = 'toorliuyinghui'
       window.commentConfig.repo = 'toorliuyinghui# 必填项  你的存储评论的repo'
       window.commentConfig.client_id = '1fe6b70d988456916089'
@@ -613,7 +592,7 @@ SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Sat Mar 23 2019 12:59:31 GMT+0800',
+      	id: 'Sun Mar 24 2019 21:17:47 GMT+0800',
         owner: 'toorliuyinghui',
         repo: 'toorliuyinghui# 必填项  你的存储评论的repo',
         client_id: '1fe6b70d988456916089',

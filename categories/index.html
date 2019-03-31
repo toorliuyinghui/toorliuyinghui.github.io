@@ -10,7 +10,7 @@
     
     
     
-    <title>archive_a | 且随疾风前行</title>
+    <title>categories | 且随疾风前行</title>
     <link href="”http://148.70.147.195/index.html“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -63,7 +63,7 @@
         <div class="ring">
             <a href="http://148.70.147.195/index.html" class="menuItem" style="left: 50%; top: 15%;">首页</a>
             
-            <a href="/archives/page/2/" class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
             
             <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
             <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
@@ -111,7 +111,7 @@
                 
                 
                 
-                <li class="current">
+                <li class>
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -120,7 +120,7 @@
                 
                 
                 
-                <li class>
+                <li class="current">
                     <a href="/categories">
                         <i class="fa fa-list"></i>分类
                     </a>
@@ -154,19 +154,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="http://148.70.147.195/index.html">且随疾风前行</a>
-        >
-        <span>归档</span>
-    </div>
+                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+
+
+<article class="article well article-body" id="article">
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/categories/index.html">categories</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-03-31
+            </span>
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -174,67 +176,30 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/categories/index.html">categories</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-03-31
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2019/03/31/text/">text</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/23/参数表/">参数表</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
-                        <br>
-            
-             
-                        <a href="/2019/03/17/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
+    <div class="content-article">
         
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'categories'
+    }
+</script>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -395,12 +360,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
                 </span>
             </li>
@@ -423,6 +382,12 @@
                 </span>
             </li>
             
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/23/参数表/">参数表</a>
+                </span>
+            </li>
+            
         </ul>
     </div>
 </aside>
@@ -434,17 +399,17 @@
 
                 
                 <li>
-                    <a href="/archives/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/categories/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/categories/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/archives/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/categories/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -564,7 +529,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = ''
+      window.commentConfig.id = 'Sun Mar 31 2019 11:18:23 GMT+0800'
       window.commentConfig.owner = 'toorliuyinghui'
       window.commentConfig.repo = 'toorliuyinghui# 必填项  你的存储评论的repo'
       window.commentConfig.client_id = '1fe6b70d988456916089'
@@ -572,7 +537,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: '',
+      	id: 'Sun Mar 31 2019 11:18:23 GMT+0800',
         owner: 'toorliuyinghui',
         repo: 'toorliuyinghui# 必填项  你的存储评论的repo',
         client_id: '1fe6b70d988456916089',

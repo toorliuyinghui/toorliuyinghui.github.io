@@ -10,7 +10,7 @@
     
     
     
-    <title>web安全入门第4天 | 且随疾风前行</title>
+    <title>且随疾风前行</title>
     <link href="”148.70.147.195/index.html“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,80 +155,116 @@
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
                     
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="148.70.147.195/index.html">且随疾风前行</a>
-        >
-        <span>web安全入门第4天</span>
+<div id="article-list">
+     
+     
+     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+    
+    <div class="data-article hidden-xs">
+        <span class="month">03月</span>
+        <span class="day">17</span>
     </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
+    <!-- 大型设备文章 -->
+    <section class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
+                <a href="/2019/03/17/hello-world/">
+                    <span>Hello World</span>
+                </a>
             </h1>
         </div>
         <div class="tag-article">
             
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-03-19
-            </span>
             
+            <!-- TODO 添加评论统计 -->
+            <!--<span class="label label-gal">
+                <i class="fa fa-comments"></i>
+                <a href="/2019/03/17/hello-world/#comments">739</a>
+            </span>-->
         </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                </h4>
+        <div class="alert alert-gal article-body content-article">
+            <div class="item">
+                <a href="/2019/03/17/hello-world/">
+                    <div class="img">
+                        
+                        <img src="/imgs/preview/preview21.jpg" alt="Hello World">
+                    </div>
+                    <div class="info">
+                        
+                    </div>
+                </a>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2019-03-19
-            </p>
-            <p>
-                
-                
-            </p>
+        </div>
+    </section>
+    <section class="visible-xs">
+        <div class="title-article">
+            <center>
+                <h4>
+                    <a href="/2019/03/17/hello-world/">
+                        <span>Hello World</span>
+                    </a>
+                </h4>
+            </center>
+        </div>
+        <p></p>
+        <center>
+            <i class="fa fa-calendar"></i> 2019-03-17
         </center>
-    </div>
-    <div class="content-article">
-        <h4 id="很常见的漏洞xss漏洞（跨站脚本攻击）"><a href="#很常见的漏洞xss漏洞（跨站脚本攻击）" class="headerlink" title="很常见的漏洞xss漏洞（跨站脚本攻击）"></a>很常见的漏洞xss漏洞（跨站脚本攻击）</h4><p>由于浏览器工作机制差不多：解析渲染web中间件响应的html语言等所以xss使用范围极广<br>服务器与网站建立的联系是一次性的，为了让浏览器再次访问是能被服务器‘认出来’，服务器就会给浏览器发一个cookie(本地保存的密码实际上就是保存cookie)作为辨认标识，也是识别身份的唯一凭证可以通过在地址栏输入javascript:(document.cookie)查询。<br>危害很大<br>·窃取cookie  ·DDoS攻击  ·网页挂马  ·提升用户权限 ·获取客户端信息 ·传播跨站脚本蠕虫  ·劫持用户会话·强制弹出广告页面 ·任意窜改页面信息<br>xss攻击一般分为三种</p>
-<ol>
-<li>反射型xss 一次性攻击 </li>
-<li>存储型xss  如果服务器打开新的网的时候调用了含有恶意js脚本的网站所有访问的浏览器都会执行</li>
-<li>DOM型特殊类型的反射型xss，但不需要和服务器进行交互</li>
-</ol>
-<h4 id="xss漏洞发现和利用"><a href="#xss漏洞发现和利用" class="headerlink" title="xss漏洞发现和利用"></a>xss漏洞发现和利用</h4><p>反射性xss可以在源码查看关键变量<br>eg：</p>
-<blockquote>
-<p><scricpt>alart(“我的人生没有故事只有一个帅字贯穿始终”)<br>或者<br>&lt;img src=0 onerrow alart(‘xss’)&gt;<br>提交则会弹窗<br>储存型xss和反射型差不多不过会长期保存<br>Dom不太明白就不多说了</scricpt></p>
-</blockquote>
-<hr>
-<h4 id="xss自动化测试"><a href="#xss自动化测试" class="headerlink" title="xss自动化测试"></a>xss自动化测试</h4><p>常见  ·awvs   ·appscan   ·w3af    ·xsser   ·xssf<br>如果发现了xss漏洞，那么我们可以结合一些xss工具来利用。常见的css利用工具有下面几个<br>·BlueLotus——XSSReceiver搭建的XSS平台<br>·XSSer.me源代码搭建的XSS平台<br>·kali下的BeEf</p>
-<h4 id="CSrf（跨站请求伪造）"><a href="#CSrf（跨站请求伪造）" class="headerlink" title="CSrf（跨站请求伪造）"></a>CSrf（跨站请求伪造）</h4><p>！<a href="https://s2.ax1x.com/2019/03/19/AuExN6.png" target="_blank" rel="noopener"></a><br>csrf 常与xss混合使用<br>原理：web应用程序在用户进行敏感操作时，如修改账号密码，添加账号，转账等，没有校验表单token或者http请求头中的referer值，被恶意利用完成恶意请求</p>
-<hr>
-<h4 id="目录遍历漏洞"><a href="#目录遍历漏洞" class="headerlink" title="目录遍历漏洞"></a>目录遍历漏洞</h4><p>目录遍历漏洞是应为Web中间件与网站目录权限配置不当。在网站目录无索引文件（index.html,index.asp,index.php,index.jsp）的情况下访问改网站会直接显示该目录下所有文件及其子目录。通过web中间件进行正确的配置，可以由效避免这些漏洞。<br>可以手工测试，也可以用自动化扫描器（awvs，w3af，APPscan）<br>可以得到很多信息</p>
-<h4 id="信息泄露漏洞，任意文件读取漏洞（简单介绍一下）"><a href="#信息泄露漏洞，任意文件读取漏洞（简单介绍一下）" class="headerlink" title="信息泄露漏洞，任意文件读取漏洞（简单介绍一下）"></a>信息泄露漏洞，任意文件读取漏洞（简单介绍一下）</h4><h5 id="信息泄露"><a href="#信息泄露" class="headerlink" title="信息泄露"></a>信息泄露</h5><p>web服务器敏感信息泄露端口 ：服务类型 开放服务版本。<br>中间件敏感信息泄露 ：中间件类型 版本 后台地址。<br>web应用程序信息泄露。<br>web应用程序脚本程序版本。<br>web应用程序开发框架。<br>web应用程序cms类型。<br>web应用程序后台地址 敏感目录 api等。<br>安装目录信息。<br>开发遗留文件。<br>第三方插件。<br>的whois信息。</p>
-<blockquote>
-<p>防御方式：修改默认端口   屏蔽安装的服务的版本信息，修改对web中间件默认的后台地址</p>
-</blockquote>
-<h5 id="任意文件读取"><a href="#任意文件读取" class="headerlink" title="任意文件读取"></a>任意文件读取</h5><p>配置不当且没有对用户下载的文件参数进行有效的过滤，恶意用户就可以获取任意文件如web数据库的账号密码等。<br>如果网站提供的链接形如：<br>·readfile.php?file=<strong> </strong> .txt<br>·download.php?file=<strong> </strong> .rar<br>或者参数名为：<br>·realPath=<br>·filePath=<br>·inputfile=<br>则多半是可利用的目录遍历漏洞<br>尝试下载网站的索引文件index文件，下载文件本身，下载爬虫都可以利用。</p>
-<hr>
+        <p></p>
+        <p></p>
+        <center>
+            
+            
+        </center>
+        <p></p>
+        <div class="alert alert-gal article-body content-article">
+            <p style="text-align: center;">
+                <a href="/2019/03/17/hello-world/">
+                    
+                    <img src="/imgs/preview/preview1.jpg" alt="Hello World">
+                </a>
+            </p>
+        </div>
+        
+        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/17/hello-world/">
+            阅读全文
+            <!--<span class="badge">739</span>-->
+        </a>
+    </section>
+</div>
+     
+</div>
+<!-- 前方最多7个 < 1 2 3 4 5 6 -->
+<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
 
-    </div>
-</article>
+<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
+<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
 
 
-<div id="comments-template"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script>
-	if(!window.commentConfig) {
-      window.commentConfig = {}
-      window.commentConfig.title = 'web安全入门第4天'
-    }
-</script>
+
+<div id="gal-pagination" class="clearfix">
+    <ul class="pagination pagination-gal pull-right">
+        
+        <li class="prev">
+            <a href="/">«</a>
+        </li>
+        
+        
+        
+        <li>
+            <a href="/">1</a>
+        </li>
+        
+        
+        <li class="current">
+            <span>2</span>
+        </li>
+        
+        
+        
+        
+    </ul>
+</div>
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -372,12 +408,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/03/31/text/">text</a>
                 </span>
             </li>
@@ -414,6 +444,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/23/参数表/">参数表</a>
                 </span>
             </li>
@@ -429,17 +465,17 @@
 
                 
                 <li>
-                    <a href="/2019/03/19/web安全入门第4天/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/page/2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/19/web安全入门第4天/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/page/2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/19/web安全入门第4天/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/page/2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -559,7 +595,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Mar 19 2019 16:54:42 GMT+0800'
+      window.commentConfig.id = ''
       window.commentConfig.owner = 'toorliuyinghui'
       window.commentConfig.repo = 'toorliuyinghui# 必填项  你的存储评论的repo'
       window.commentConfig.client_id = '1fe6b70d988456916089'
@@ -567,7 +603,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Mar 19 2019 16:54:42 GMT+0800',
+      	id: '',
         owner: 'toorliuyinghui',
         repo: 'toorliuyinghui# 必填项  你的存储评论的repo',
         client_id: '1fe6b70d988456916089',

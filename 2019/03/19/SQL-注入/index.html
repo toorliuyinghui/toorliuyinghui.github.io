@@ -103,8 +103,8 @@
             <ul class="nav navbar-nav" id="menu-gal">
                 
                 
-                <li class>
-                    <a href="/">
+                <li class="current">
+                    <a href="/index.html">
                         <i class="fa fa-home"></i>首页
                     </a>
                 </li>
@@ -240,7 +240,7 @@
 <p>思路：既然无法基于报错信息报错信息判断结果，基于逻辑真假的不同结果来判断<br>· 1’and 1=1#<br>· 1’and 1=2#<br>猜列名 ： 1’and table.user is not null#<br>猜库里其他表：1’and (select count() from table)&gt;0#<br>列对应关系 1’and users.user is not null#<br>猜字段内容：1’and user=’admin<br>           1’or user like ‘%a%<br>·猜账号对应密码：<br>         ·2’ or user=’admin’and password=’密码<br> ·burpsuit自动化猜解</p>
 <h4 id="·打开脑洞，注入的方式多种多样"><a href="#·打开脑洞，注入的方式多种多样" class="headerlink" title="·打开脑洞，注入的方式多种多样"></a>·打开脑洞，注入的方式多种多样</h4><p>真实案例：某电商网站</p>
 <blockquote>
-<p><a href="http://1.1.1.1/goods.php?cnt&amp;goodsid=123" target="_blank" rel="noopener">http://1.1.1.1/goods.php?cnt&amp;goodsid=123</a><br>·and 1=1#   显示一包面巾纸<br>·and 1=2#   显示一包洗衣粉<br>工具未扫到漏洞，于是人工拼接了下列语句<br>                            ↓截取第一个字符<br>  · 1’and ORD(MID((version()),1,1))&amp;1&gt;0#<br> 得到ASCLL码↑ ↑从字符串截取 ↑查询版本信息<br>· CURRENT_USER()、DATABASE()<br>· MID(ColumName,Start[,Length])<br>·ORD(string)&amp;32 跟上的对应的字符的ascll码的32所在的位的值<br>1(128) 1(64) 1(32) 1(16) 1(8) 1(4) 1(2) 1(1)<br>依次查询就可以的到对应的ascll码进而得到所有信息.</p>
+<p><a href="http://1.1.1.1/goods.php?cnt&amp;goodsid=123" target="_blank" rel="noopener">http://1.1.1.1/goods.php?cnt&amp;goodsid=123</a><br>·and 1=1#   显示一包面巾纸<br>·and 1=2#   显示一包洗衣粉<br>工具未扫到漏洞，于是人工拼接了下列语句<br>——————————————————————————————↓截取第一个字符<br>  · 1’and ORD(MID((version()),1,1))&amp;1&gt;0#<br> 得到ASCLL码↑<em>↑从字符串截取\</em>↑查询版本信息<br>· CURRENT_USER()、DATABASE()<br>· MID(ColumName,Start[,Length])<br>·ORD(string)&amp;32 跟上的对应的字符的ascll码的32所在的位的值<br>1(128) 1(64) 1(32) 1(16) 1(8) 1(4) 1(2) 1(1)<br>依次查询就可以的到对应的ascll码进而得到所有信息.</p>
 </blockquote>
 <h3 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h3><blockquote>
 <p>简介<br>    ·开源sql注入漏洞检测，利用工具<br>    ·检测动态页面中get/past参数、cookie、http头<br>    ·数据榨取<br>    ·文件系统访问<br>    ·操作系统命令执行<br>    ·引擎强大、特性丰富<br>    ·Xss漏洞检测</p>
@@ -327,6 +327,12 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
                 </span>
             </li>
@@ -376,12 +382,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/17/hello-world/">Hello World</a>
                 </span>
             </li>
             
@@ -409,7 +409,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/17/hello-world/">Hello World</a>
+                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
                 </span>
             </li>
             
@@ -421,31 +421,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
+                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
+                    <a href="/2019/03/17/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
                 </span>
             </li>
             
@@ -458,6 +452,12 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/03/23/参数表/">参数表</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
                 </span>
             </li>
             
@@ -604,7 +604,7 @@
     if(window.commentConfig) {
       window.commentConfig.id = 'Tue Mar 19 2019 18:41:22 GMT+0800'
       window.commentConfig.owner = 'toorliuyinghui'
-      window.commentConfig.repo = 'toorliuyinghui# 必填项  你的存储评论的repo'
+      window.commentConfig.repo = 'toorliuyinghui'
       window.commentConfig.client_id = '1fe6b70d988456916089'
       window.commentConfig.client_secret = 'f1297df96159f9e0cf4b12220960949fb2b5837e'
       window.commentConfig.redirect_uri = ''
@@ -612,7 +612,7 @@
       window.commentConfig = {
       	id: 'Tue Mar 19 2019 18:41:22 GMT+0800',
         owner: 'toorliuyinghui',
-        repo: 'toorliuyinghui# 必填项  你的存储评论的repo',
+        repo: 'toorliuyinghui',
         client_id: '1fe6b70d988456916089',
         client_secret: 'f1297df96159f9e0cf4b12220960949fb2b5837e',
         redirect_uri: ''

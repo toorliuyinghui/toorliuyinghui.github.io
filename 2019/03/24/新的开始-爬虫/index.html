@@ -277,16 +277,21 @@ Deep：深度爬虫：爬取静态数据：html，css
 ·urllib.parse.parse_qs()--返回一个key-value对应的字典格式  eg：{&apos;FuncNo&apos;: [&apos;9009001&apos;], &apos;username&apos;: [&apos;1&apos;]}
 urllib.parse.urlunparse(）--将部分组装成url整体
 urllib.parse.urljoin(baseurl, allow_fragments=True)--将基本url和其他url组合成一个url
+urllib.parse.urlencode(params)--将query中的查询值转换为一个URL编码的字符串,该字符串可以作为URL的query参数包括在内,或者可以上传作为POST请求的一部分。
 urllib.parse.urldefrag(url)--如果URL中包含fragment标识，就会返回一个不带fragment标识的URL，fragment标识会被当成一个分离的字符串返回；如果URL中不包含fragment标识，就会返回一个URL和一个空字符串；
 </code></pre><p> （二）、URL quoting（URL引用）</p>
 <pre><code>这个模块的主要作用就是通过引入合适编码和特殊字符对URL进行安全重构，并且可以反向解析。“就是把中文什么的编成电脑认识的ascii码”
-urllib.parse.quote(string, safe=’/’, encoding=None, errors=None)
+urllib.parse.quote(string, safe=’string.printtable’, encoding=None, errors=None)
 第一个参数是URL，第二个参数是安全的字符串，即在加密的过程中，该类字符不变。默认为“/”；
 urllib.parse.quote_plus() 与上面的相似但是能把空格转成＋ safe默认为空
 urllib.parse.quote_from_bytes(bytes, safe=’/’)--接受字节
 urllib.parse.unquote()
-urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None, quote_via=quote_plus)--拼接map类型或两个序列元素的元组成为新的参数结果是key-value的形式  eg：key1=value1&amp;key2=value2...
+urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None, quote_via=quote_plus)--拼接map类型或两个序列元素的元组成为新的参数结果是key-value的形式 &quot;字典传参&quot; eg：key1=value1&amp;key2=value2...
 </code></pre></li>
+<li><p>post：<br> url.request.open(url,data=”服务器接收的数据”)<br> handler：处理器的自定义；</p>
+</li>
+<li><p>headers<br> 请求头：request=urllib.request.Request(url)<br> user-agent<br> 响应头：response=urllib.request.urlopen(url or request)</p>
+</li>
 </ol>
 
     </div>
@@ -432,6 +437,12 @@ urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None,
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/17/hello-world/">Hello World</a>
                 </span>
             </li>
@@ -444,19 +455,13 @@ urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None,
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
+                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
                 </span>
             </li>
             
@@ -480,13 +485,13 @@ urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None,
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/参数表/">参数表</a>
+                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                    <a href="/2019/03/23/参数表/">参数表</a>
                 </span>
             </li>
             

@@ -212,11 +212,12 @@
 <p>然后开始进入安装正题</p>
 <h3 id="1-首先装好你的系统，这里为了做一遍教程，我先把我的系统重装了"><a href="#1-首先装好你的系统，这里为了做一遍教程，我先把我的系统重装了" class="headerlink" title="1. 首先装好你的系统，这里为了做一遍教程，我先把我的系统重装了"></a>1. 首先装好你的系统，这里为了做一遍教程，我先把我的系统重装了</h3><p><img src="https://s2.ax1x.com/2019/03/31/Ars9oT.png" alt><br>同时进入<a href="https://www.bt.cn/Download/btsoftlinux.html" target="_blank" rel="noopener">宝塔linux</a>注册一个账号然后点立即安装跳转到下一页面<br>然后能看到这里有三个开端口的教程,照着他做，没什么难的<br>！<a href="https://s2.ax1x.com/2019/03/31/ArsG6A.png" target="_blank" rel="noopener"></a><br><a href="https://www.bt.cn/bbs/thread-1229-1-1.html" target="_blank" rel="noopener">腾讯云开端口教程</a><br>注意一下这里提示也可以导入······实则是必须导入两个文件，下载下来导入就好了<br><img src="https://s2.ax1x.com/2019/03/31/ArsXtO.png" alt></p>
 <p>然后我们回到腾讯云的控制台找到镜像，然后点击导入镜像 url填写服务器ip 名称随意然后保持默认就好了</p>
-<p>然后需要打开服务器进行操作了<br>这里我选择的连接工具是<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank" rel="noopener">FinalShell_forwindows</a><br><a href="http://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank" rel="noopener">formacos</a><br>安装好后按图示登陆连接你的服务器然后就可以进入你的服务器命令行界面。<br><img src="https://s2.ax1x.com/2019/03/31/ArypjA.png" alt><br>输入下面命令进行安装<br><figure class="highlight plain"><figcaption><span>install -y wget && wget -O install.sh</span><a href="http://download.bt.cn/install/install_6.0.sh" target="_blank" rel="noopener">&& bash install.sh```</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">遇到提示一律输入y就可以了</span><br><span class="line">安装好以后重启一遍在服务器输入下面这行代码</span><br><span class="line">```/etc/init.d/bt start</span><br></pre></td></tr></table></figure></p>
+<p>然后需要打开服务器进行操作了<br>这里我选择的连接工具是<a href="http://www.hostbuf.com/downloads/finalshell_install.exe" target="_blank" rel="noopener">FinalShell_forwindows</a><br><a href="http://www.hostbuf.com/downloads/finalshell_install.pkg" target="_blank" rel="noopener">formacos</a><br>安装好后按图示登陆连接你的服务器然后就可以进入你的服务器命令行界面。<br><img src="https://s2.ax1x.com/2019/03/31/ArypjA.png" alt><br>输入下面命令进行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; bash install.sh</span><br></pre></td></tr></table></figure></p>
+<p>遇到提示一律输入y就可以了<br>安装好以后重启一遍在服务器输入下面这行代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/bt start</span><br></pre></td></tr></table></figure></p>
 <p>然后用服务器给你的账号与密码登陆服务器给你的url<br><img src="https://s2.ax1x.com/2019/03/31/AryE4S.png" alt><br>然后选择一件安装<br>左边的板块，接下来就是漫长的读条时间</p>
 <p>安装完成后点击网站–添加站点</p>
 <p><img src="https://s2.ax1x.com/2019/03/31/Arynjs.png" alt><br>如果购买了域名且解析了的话这里就填你的域名，没有的话就填写服务器IP就可以了（其他默认）<br>此时你的服务器最下面会有一个www目录打开里面的wwwroot目录就会有你的域名目录<br>打开你的blog根目录有一个public文件夹，每次要上传的时候把里面的所有内容全部拖到域名目录里就可以访问了<br>ps:如果喜欢ubuntu的话把yum换成apt试试（没测试过）</p>
-<p><strong><em>分割线</em></strong></p>
+<p><strong><em> 分割线 </em></strong></p>
 <blockquote>
 <p>教程就到这里了.其实没什么容易踩得坑，用宝塔linux比起网上的各种环境搭建简单太多了，这种一键建站萌新勇气来贼爽,大牛觉得有什么不对的地方可以发邮件“喷”我啊！嘤嘤嘤 邮箱：“<a href="mailto:masrerliu@gmail.com" target="_blank" rel="noopener">masrerliu@gmail.com</a>”</p>
 </blockquote>
@@ -364,49 +365,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/03/17/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
                 </span>
             </li>
             
@@ -418,7 +377,49 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/23/参数表/">参数表</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
                 </span>
             </li>
             

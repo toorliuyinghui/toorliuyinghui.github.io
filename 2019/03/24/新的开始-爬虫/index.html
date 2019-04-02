@@ -261,36 +261,86 @@ Deep：深度爬虫：爬取静态数据：html，css
 
 包含六个部分，元组中每一个元素都是一个字符串，可以为空，这六个部分均不能再被分割成更小的部分.
 列表如下
-    |元素| 编号| 值| 值不存在时默认值|
-    | :-- | :-- | :-- | :-- |
-    |scheme |0|    请求|    一定存在|
-    |netloc |1|    网址|    空字符串|
-    |path| 2|    分层路径|    空字符串|
-    |params |3|    参数|    空字符串|
-    |query|4 |    查询组件    |空字符串|
-    |fragment |5|    标识符|    空字符串|
-    |username | |用户名    |None|
-    |password | |密码    |None|
-    |hostname | |主机名    |None|
-    |port ||端口号    |None|
-·urllib.parse.urlparse()--解析成6个部分
-·urllib.parse.parse_qs()--返回一个key-value对应的字典格式  eg：{&apos;FuncNo&apos;: [&apos;9009001&apos;], &apos;username&apos;: [&apos;1&apos;]}
-urllib.parse.urlunparse(）--将部分组装成url整体
-urllib.parse.urljoin(baseurl, allow_fragments=True)--将基本url和其他url组合成一个url
-urllib.parse.urlencode(params)--将query中的查询值转换为一个URL编码的字符串,该字符串可以作为URL的query参数包括在内,或者可以上传作为POST请求的一部分。
-urllib.parse.urldefrag(url)--如果URL中包含fragment标识，就会返回一个不带fragment标识的URL，fragment标识会被当成一个分离的字符串返回；如果URL中不包含fragment标识，就会返回一个URL和一个空字符串；
-</code></pre><p> （二）、URL quoting（URL引用）</p>
-<pre><code>这个模块的主要作用就是通过引入合适编码和特殊字符对URL进行安全重构，并且可以反向解析。“就是把中文什么的编成电脑认识的ascii码”
-urllib.parse.quote(string, safe=’string.printtable’, encoding=None, errors=None)
-第一个参数是URL，第二个参数是安全的字符串，即在加密的过程中，该类字符不变。默认为“/”；
-urllib.parse.quote_plus() 与上面的相似但是能把空格转成＋ safe默认为空
-urllib.parse.quote_from_bytes(bytes, safe=’/’)--接受字节
-urllib.parse.unquote()
-urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None, quote_via=quote_plus)--拼接map类型或两个序列元素的元组成为新的参数结果是key-value的形式 &quot;字典传参&quot; eg：key1=value1&amp;key2=value2...
 </code></pre></li>
-<li><p>post：<br> url.request.open(url,data=”服务器接收的数据”)<br> handler：处理器的自定义；</p>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">元素</th>
+<th style="text-align:left">编号</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">值不存在时默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">scheme</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">请求</td>
+<td style="text-align:left">一定存在</td>
+</tr>
+<tr>
+<td style="text-align:left">netloc</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">网址</td>
+<td style="text-align:left">空字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">path</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">分层路径</td>
+<td style="text-align:left">空字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">params</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">参数</td>
+<td style="text-align:left">空字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">query</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">查询组件</td>
+<td style="text-align:left">空字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">fragment</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">标识符</td>
+<td style="text-align:left">空字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">username</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">用户名</td>
+<td style="text-align:left">None</td>
+</tr>
+<tr>
+<td style="text-align:left">password</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">密码</td>
+<td style="text-align:left">None</td>
+</tr>
+<tr>
+<td style="text-align:left">hostname</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">主机名</td>
+<td style="text-align:left">None</td>
+</tr>
+<tr>
+<td style="text-align:left">port</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">端口号</td>
+<td style="text-align:left">None</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li><p>·urllib.parse.urlparse()–解析成6个部分<br>·urllib.parse.parse_qs()–返回一个key-value对应的字典格式  eg：{‘FuncNo’: [‘9009001’], ‘username’: [‘1’]}<br>urllib.parse.urlunparse(）–将部分组装成url整体<br>urllib.parse.urljoin(baseurl, allow_fragments=True)–将基本url和其他url组合成一个url<br>urllib.parse.urlencode(params)–将query中的查询值转换为一个URL编码的字符串,该字符串可以作为URL的query参数包括在内,或者可以上传作为POST请求的一部分。<br>urllib.parse.urldefrag(url)–如果URL中包含fragment标识，就会返回一个不带fragment标识的URL，fragment标识会被当成一个分离的字符串返回；如果URL中不包含fragment标识，就会返回一个URL和一个空字符串；<br>（二）、URL quoting（URL引用）<br>这个模块的主要作用就是通过引入合适编码和特殊字符对URL进行安全重构，并且可以反向解析。“就是把中文什么的编成电脑认识的ascii码”<br>urllib.parse.quote(string, safe=’string.printtable’, encoding=None, errors=None)<br>第一个参数是URL，第二个参数是安全的字符串，即在加密的过程中，该类字符不变。默认为“/”；<br>urllib.parse.quote_plus() 与上面的相似但是能把空格转成＋ safe默认为空<br>urllib.parse.quote_from_bytes(bytes, safe=’/’)–接受字节<br>urllib.parse.unquote()<br>urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None, quote_via=quote_plus)–拼接map类型或两个序列元素的元组成为新的参数结果是key-value的形式 “字典传参” eg：key1=value1&amp;key2=value2…</p>
 </li>
-<li><p>headers<br> 请求头：request=urllib.request.Request(url)<br> user-agent<br> 响应头：response=urllib.request.urlopen(url or request)</p>
+<li><p>post：<br> urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)–<br> url：就是url      data：post请求    timeout：访问超时间<br> handler：处理器的自定义；</p>
+</li>
+<li><p>headers<br> 请求头：request=urllib.request.Request(url)<br> user-agent<br> 响应头：response=urllib.request.urlopen(url or request)<br> 动态添加：request.addheader(“User-Agent”,”******“)(“注意首字母大写”)</p>
 </li>
 </ol>
 
@@ -437,7 +487,7 @@ urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None,
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
                 </span>
             </li>
             
@@ -449,7 +499,7 @@ urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None,
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
+                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
                 </span>
             </li>
             
@@ -461,13 +511,13 @@ urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None,
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
+                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
+                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
                 </span>
             </li>
             
@@ -485,7 +535,7 @@ urllib.parse.urlencode(query, doseq=False, safe=”, encoding=None, errors=None,
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
+                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
                 </span>
             </li>
             

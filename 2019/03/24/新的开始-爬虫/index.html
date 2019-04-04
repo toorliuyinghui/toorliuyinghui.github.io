@@ -340,12 +340,13 @@ Deep：深度爬虫：爬取静态数据：html，css
 </li>
 <li><p>post：<br> urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None)–<br> url：就是url      data：post请求    timeout：访问超时间<br> handler：处理器的自定义；</p>
 </li>
-<li><p>headers<br> 请求头：request=urllib.request.Request(url)<br> user-agent<br> 响应头：response=urllib.request.urlopen(url or request)<br> 动态添加：request.addheader(“User-Agent”,”******“)(“注意首字母大写”)<br> user-agent:<br> (1)模拟真实的浏览器发送请求；<br> （2）设置 request.addheader(“User-Agent”,”******“)(“注意首字母大写”)<br> (3)响应头：response.header<br> (4)创建request：urllib.request.Request(url)</p>
+<li><p>headers<br> 请求头：request=urllib.request.Request(url)<br> user-agent<br> 响应头：response=urllib.request.urlopen(url or request)<br> 动态添加：request.addheader(“User-Agent”,”******“)(“注意首字母大写”)<br> user-agent:<br> (1)模拟真实的浏览器发送请求；<br> （2）设置 request.addheader(“User-Agent”,”******“)(“注意首字母大写”)<br> (3)响应头：response.header<br> (4)创建request：urllib.request.Request(url)<br> cookie：带着cookie请求模拟被认证的用户<br> cookiejar  from http import cookiejar    cookiejar.CookieJar()<br> httpcookieprocessor()   —有cookie功能的处理器能通过代码自动</p>
 </li>
 <li><p>IP代理<br> 用不同的浏览器和ip地址<br> （1）免费的代理ip：时效性差，错误率高<br> （2）付费ip：错误率低，贵，也有时效<br> ip：<br> 透明：对方知道真实ip<br> 匿名：对方不知道真实ip，知道使用了代理<br> 高匿：对反啥都不知道</p>
 <p> 但是python系统的urlopen没有添加代理的功能，需要我们手动写函数</p>
 </li>
 </ol>
+<hr>
 
     </div>
 </article>
@@ -490,7 +491,7 @@ Deep：深度爬虫：爬取静态数据：html，css
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
+                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
                 </span>
             </li>
             
@@ -502,19 +503,13 @@ Deep：深度爬虫：爬取静态数据：html，css
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                    <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
                 </span>
             </li>
             
@@ -526,7 +521,13 @@ Deep：深度爬虫：爬取静态数据：html，css
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
+                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
                 </span>
             </li>
             
@@ -538,7 +539,7 @@ Deep：深度爬虫：爬取静态数据：html，css
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
                 </span>
             </li>
             

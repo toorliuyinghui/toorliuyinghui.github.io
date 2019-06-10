@@ -10,7 +10,7 @@
     
     
     
-    <title>web安全入门第一天 | 且随疾风前行</title>
+    <title>安全入门3 | 且随疾风前行</title>
     <link href="”http://148.70.147.195/index.html“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -160,19 +160,19 @@
         <i class="fa fa-home"></i>
         <a href="http://148.70.147.195/index.html">且随疾风前行</a>
         >
-        <span>web安全入门第一天</span>
+        <span>安全入门3</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                <a href="/2019/06/10/安全入门3/">安全入门3</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-03-18
+                <i class="fa fa-calendar"></i> 2019-06-10
             </span>
             
         </div>
@@ -182,11 +182,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                    <a href="/2019/06/10/安全入门3/">安全入门3</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-03-18
+                <i class="fa fa-calendar"></i> 2019-06-10
             </p>
             <p>
                 
@@ -195,16 +195,105 @@
         </center>
     </div>
     <div class="content-article">
-        <p>在学习这些东西之前，就只学过学校教的c语言吧，看过几天python算是从0开开始学习安全这一块了这篇博客大概就是从i春秋和安全牛客上看视频学习的一些学习记录。</p>
-<h3 id="web入门第一天"><a href="#web入门第一天" class="headerlink" title="web入门第一天"></a>web入门第一天</h3><h4 id="HTTP之请求方法请求：-GET-HEAD-POST"><a href="#HTTP之请求方法请求：-GET-HEAD-POST" class="headerlink" title="HTTP之请求方法请求： GET HEAD POST"></a>HTTP之请求方法请求： GET HEAD POST</h4><p>HTTP之响应消息Response;<br>一般情况有4部分<br>1.状态行 2消息报头3.空行 4.响应正文<br>提交请求后会收到返还的状态码：<br>1xx:指示信息–请求已接收，继续处理   ；<br>2xx:成功–接收、理解、接受 ；<br>3xx：重定向–要完成请求必须更进一步操作；<br>4xx:客户端错误–请求有语法错误or无法实现请求；<br>5xx：服务器错误–服务器未能实现合法请求。</p>
+        <h3 id="简单的sql注入"><a href="#简单的sql注入" class="headerlink" title="简单的sql注入"></a>简单的sql注入</h3><p>原理都和其他渗透方式差不多，都是未将用户提供的参数和查询代码隔离。<br>常见几种注入方式：<br>整形注入；字符型注入；基于错误显示的sql注入；union型sql注入；布尔型注入；基于时间的sql注入<br>web后端数据库一般有Mysql，SQLServer，Oracle，Access，</p>
+<h6 id="因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接"><a href="#因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接" class="headerlink" title="因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接"></a>因为没有细致的展开去学，这里也不过多介绍，后面学了会补上博客连接</h6><h4 id="注入的基本思路："><a href="#注入的基本思路：" class="headerlink" title="注入的基本思路："></a>注入的基本思路：</h4><p>·判断是否为动态网站，注入点仅存于动态网站；<br>·判断是否有注入点<br>·手工或者通过工具查看数据库信息<br>·获取敏感信息，密码等</p>
 <hr>
-<h4 id="渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）"><a href="#渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）" class="headerlink" title="渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）"></a>渗透测试一般在虚拟机上环境下比较方便（百度上有各种各样的教程这里就不过多赘述了）</h4><p><a href="https://baijiahao.baidu.com/s?id=1610754152224855428&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">这里插一个我当初安装kali时用的教程</a><br>kali的账户默认为root  密码默认为toor<br>然后讲一讲安装好后的配置问题：<br>VMware 提供了三种网络工作模式 （解决虚拟机网络联通的问题）<br>·Bridged 桥接模式：虚拟机和实体机在同一网段IP相同<br>·NAT 网络地址转换模式：虚拟机通过实体机来上网<br>·Host_Only 仅主机模式：只能和实体机通讯无法上网<br>VMware workstation 还提供了虚拟机快照的功能“位于顶部文件那一栏”<br>对虚拟机的运行状态进行快照，（包括正在安装的软件，和进程）以便恢复之前的状态。<br>（建议在第一次配置好后拍一张快照储存当初始化用）</p>
+<h4 id="常见手工注入语句："><a href="#常见手工注入语句：" class="headerlink" title="常见手工注入语句："></a>常见手工注入语句：</h4><p>‘ and ’1‘=’1        ；‘ and ’1‘=’2<br>查询列数的语句： order by n （超出列数会执行错误）<br>union(联合查询可以和多条select语句共同起作用)<br>判断数据显示点 union select 1，2，3，N<br>查看数据库基本信息<br>version（），database（）<br>查看数据库有哪些表<br>union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=’security’<br>查看对应表有那些列<br>union select 1,2,group_contacat(column_name)from information_schema.clumns where table_name= ‘users’<br>查看账号密码信息<br>union select 1,group_concat(username),group_concat(password) from users<br>最常用的工具就是SQL map了，上手也快功能强大<br><img src="https://s2.ax1x.com/2019/03/19/AnWmEF.png" alt><br><a href="https://www.baidu.com" target="_blank" rel="noopener">进阶版</a></p>
 <hr>
-<h4 id="然后来讲一下网站的搭建"><a href="#然后来讲一下网站的搭建" class="headerlink" title="然后来讲一下网站的搭建"></a>然后来讲一下网站的搭建</h4><p>网站由中间件、网站程序、数据库等程序组成。<br>常见的中间件大致就是Apache、Ninx、IIS这三种然后由 PHP、JSP、ASP等web语言编写，数据库则mysql是目前最火的数据库<br>我们搭建网站时可以独立安装每一个组建，也有一键建站的集成功能。当然，各有好处<br>常见的集成环境：·phpStudy ·XAMPP ·Wamp Server<br>DVWA时开源的漏洞靶场功能强大，学习适合可以参照<a href="https://jingyan.baidu.com/article/a3a3f81117e5f18da2eb8a09.html" target="_blank" rel="noopener">百度上的教程</a><br>也可以安装虚拟机靶场Metasploitable2-Linux 账号密码都为msfadmin 登录后ifxonfig出ip  在浏览器输入ip就可以使用了<br>DVWA的账户默认为admin 密码是password。</p>
+<h3 id="命令注入漏洞"><a href="#命令注入漏洞" class="headerlink" title="命令注入漏洞"></a>命令注入漏洞</h3><p>有些网站可以提ping功能，但是如果缺少一些过滤保护，那么就能通过一些特殊的指令让其执行恶意命令<br>命令的权限取决于web中间件的权限<br>举个简单的例子 ping 127.0.0.1 &amp;&amp; net user admin password /add<br>就可以通过命令添加一个新的admin管理员<br>常见下面的命令：</p>
 <hr>
-<h4 id="Burpsuit基础"><a href="#Burpsuit基础" class="headerlink" title="Burpsuit基础"></a>Burpsuit基础</h4><p>burpsuit是用于攻击web的集成平台。包含许多工具所有工具都共享一个能处理并显示HTTP消息，持久性，认证，代理日志警报的一个强大的可扩展框架<br>所有功能的核心都是HTTP代理对HTTP流量分析方便挖掘web漏洞<br>顺便体一句HTTP代理：<br>HTTP代理位于浏览器和web服务器之间<br>可以分析浏览器和服务器之间的通信数据 ，测试web漏洞如SQl注入，文件上传，弱口令等</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">·for windows</th>
+<th style="text-align:right"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ping</td>
+<td style="text-align:right">测试网络连通性</td>
+</tr>
+<tr>
+<td style="text-align:left">netstart</td>
+<td style="text-align:right">查看网络端口及连接状态</td>
+</tr>
+<tr>
+<td style="text-align:left">net user</td>
+<td style="text-align:right">查看增加删除当前系统账号</td>
+</tr>
+<tr>
+<td style="text-align:left">net localgroup</td>
+<td style="text-align:right">查看增加删除当前系统账号</td>
+</tr>
+<tr>
+<td style="text-align:left">net localgroup</td>
+<td style="text-align:right">查看增加删除当前系统用户组</td>
+</tr>
+<tr>
+<td style="text-align:left">dir</td>
+<td style="text-align:right">当前目录下的文件和子目录信息</td>
+</tr>
+<tr>
+<td style="text-align:left">req</td>
+<td style="text-align:right">注册表及相关操作</td>
+</tr>
+<tr>
+<td style="text-align:left">systeminfo</td>
+<td style="text-align:right">查看当前计算机的综合信息</td>
+</tr>
+<tr>
+<td style="text-align:left">tasklist</td>
+<td style="text-align:right">显示当前运行的进程信息</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<p><em>这篇算是测试了看一看写出来的效果如何后面在做调整</em></p>
+<p>·多条语句执行语法格式<br>语句1 &amp; 语句2             :     执行1后执行2<br>语句1 &amp;&amp; 语句2             :     执行1成功后执行2<br>语句1 &#124;&#124;语句2    :     执行1失败后执行2<br>语句1 &#124;语句2         :     把1的执行结果传递给2    </p>
+<hr>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">·for linux</th>
+<th style="text-align:right"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ifconfig</td>
+<td style="text-align:right">查看当前ip，mac等信息</td>
+</tr>
+<tr>
+<td style="text-align:left">netstat</td>
+<td style="text-align:right">查看网络开放端口及连接状态</td>
+</tr>
+<tr>
+<td style="text-align:left">whoiam</td>
+<td style="text-align:right">查看当前用户</td>
+</tr>
+<tr>
+<td style="text-align:left">cat /etc/passwd</td>
+<td style="text-align:right">查看所有用户信息</td>
+</tr>
+<tr>
+<td style="text-align:left">ls</td>
+<td style="text-align:right">查看当前目录下的文件和子目录信息</td>
+</tr>
+<tr>
+<td style="text-align:left">useradd</td>
+<td style="text-align:right">添加账户</td>
+</tr>
+<tr>
+<td style="text-align:left">userdel</td>
+<td style="text-align:right">删除账户</td>
+</tr>
+<tr>
+<td style="text-align:left">passwd</td>
+<td style="text-align:right">修改账户密码</td>
+</tr>
+</tbody>
+</table>
+<p>命令注入一般流程<br><img src="https://s2.ax1x.com/2019/03/19/AnhkwT.png" alt><br><img src="https://s2.ax1x.com/2019/03/19/AnhATU.png" alt> </p>
 
     </div>
 </article>
@@ -215,7 +304,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = 'web安全入门第一天'
+      window.commentConfig.title = '安全入门3'
     }
 </script>
 
@@ -273,61 +362,55 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/06/10/简单爬虫/">简单爬虫</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/SQL手动注入初步/">SQL手动注入初步</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门5/">安全入门5</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门4/">安全入门4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门3/">安全入门3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门2/">安全入门2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门/">安全入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/23/参数表/">参数表</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
                 </span>
             </li>
             
@@ -349,19 +432,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/17/hello-world/">Hello World</a>
+                    <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
+                    <a href="/2019/06/10/SQL手动注入初步/">SQL手动注入初步</a>
                 </span>
             </li>
             
@@ -373,37 +450,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                    <a href="/2019/06/10/安全入门/">安全入门</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
+                    <a href="/2019/06/10/安全入门3/">安全入门3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
+                    <a href="/2019/06/10/安全入门2/">安全入门2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+                    <a href="/2019/06/10/安全入门4/">安全入门4</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                    <a href="/2019/06/10/安全入门5/">安全入门5</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
+                    <a href="/2019/06/10/简单爬虫/">简单爬虫</a>
                 </span>
             </li>
             
@@ -418,17 +495,17 @@
 
                 
                 <li>
-                    <a href="/2019/03/18/web安全入门第一天/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/06/10/安全入门3/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/18/web安全入门第一天/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/06/10/安全入门3/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/18/web安全入门第一天/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/06/10/安全入门3/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -548,7 +625,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Mon Mar 18 2019 15:16:19 GMT+0800'
+      window.commentConfig.id = 'Mon Jun 10 2019 20:08:16 GMT+0800'
       window.commentConfig.owner = 'toorliuyinghui'
       window.commentConfig.repo = 'toorliuyinghui'
       window.commentConfig.client_id = '1fe6b70d988456916089'
@@ -556,7 +633,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Mon Mar 18 2019 15:16:19 GMT+0800',
+      	id: 'Mon Jun 10 2019 20:08:16 GMT+0800',
         owner: 'toorliuyinghui',
         repo: 'toorliuyinghui',
         client_id: '1fe6b70d988456916089',

